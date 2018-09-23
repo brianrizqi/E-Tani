@@ -31,7 +31,10 @@ class User{
                 'email'=>$item['email'],
                 'level'=>$item['level'],
                 'username'=>$item['username'],
-                'password'=>$item['password']
+                'alamat'=>$item['alamat'],
+                'no_telp'=>$item['no_telp'],
+                'password'=>$item['password'],
+                'poin'=>$item['poin']
             );
         }
         return $list;

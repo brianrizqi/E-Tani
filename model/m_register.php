@@ -3,20 +3,48 @@ require_once 'init.php';
 
 class Register
 {
-    public function createPetani($nama,$email,$username,$password){
+    public function createPetani($nama, $email, $alamat, $username, $password, $notelp)
+    {
         global $con;
         $level = 2;
-        $sql = "insert into users (`nama`,`email`,`username`,`password`,`level`)
-values ('$nama','$email','$username','$password','$level')";
+        $poin = 0;
+        $sql = "insert into users (`nama`,`email`,`alamat`,`no_telp`,`poin`,`username`,`password`,`level`)
+values ('$nama','$email','$alamat','$notelp','$poin','$username','$password','$level')";
         $result = mysqli_query($con, $sql);
         return $result;
     }
-    public function createPembeli($nama,$email,$alamat,$username,$password){
+
+    public function createPembeli($nama, $email, $alamat, $username, $password, $notelp, $level)
+    {
         global $con;
-        $level = 3;
         $poin = 0;
-        $sql = "insert into users (`nama`,`email`,`alamat`,`poin`,`username`,`password`,`level`)
-values ('$nama','$email','$alamat','$poin','$username','$password','$level')";
+        $sql = "insert into users (`nama`,`email`,`alamat`,`no_telp`,`poin`,`username`,`password`,`level`)
+values ('$nama','$email','$alamat','$notelp','$poin','$username','$password','$level')";
+        $result = mysqli_query($con, $sql);
+        return $result;
+    }
+
+    public static function editPenjual($id_user, $nama, $email, $alamat, $username, $password, $notelp)
+    {
+        global $con;
+        $sql = "UPDATE `users` SET `nama`='$nama',`email`='$email',`alamat`='$alamat',
+`no_telp`='$notelp',`username`='$username',`password`='$password' WHERE id_user = $id_user";
+        $result = mysqli_query($con, $sql);
+        return $result;
+    }
+    public static function editAdmin($id_user, $nama, $email, $alamat, $username, $password, $notelp)
+    {
+        global $con;
+        $sql = "UPDATE `users` SET `nama`='$nama',`email`='$email',`alamat`='$alamat',
+`no_telp`='$notelp',`username`='$username',`password`='$password' WHERE id_user = $id_user";
+        $result = mysqli_query($con, $sql);
+        return $result;
+    }
+    public static function editPembeli($id_user, $nama, $email, $alamat, $username, $password, $notelp)
+    {
+        global $con;
+        $sql = "UPDATE `users` SET `nama`='$nama',`email`='$email',`alamat`='$alamat',
+`no_telp`='$notelp',`username`='$username',`password`='$password' WHERE id_user = $id_user";
         $result = mysqli_query($con, $sql);
         return $result;
     }

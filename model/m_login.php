@@ -14,7 +14,6 @@ class Login
             $_SESSION['id_user'] = $row ['id_user'];
             return $row['level'];
         } else {
-            echo "error";
             return 0;
         }
     }
