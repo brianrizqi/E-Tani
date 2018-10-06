@@ -33,25 +33,25 @@
     </div>
 </header>
 <section id="content-area">
-<!--    --><?php
-//    foreach ($list as $item) {
-//        ?>
-<!--        <h2>Beras : --><?//=$item['beras']?><!--</h2>-->
-<!--        <h2>Jagung : --><?//=$item['jagung']?><!--</h2>-->
-<!--        <h2>Kedelai : --><?//=$item['kedelai']?><!--</h2>-->
-<!--        <h2>Cabe : --><?//=$item['cabe']?><!--</h2>-->
-<!--        <h2>Bawang Merah : --><?//=$item['bawangmerah']?><!--</h2>-->
-<!--        <h2>Bawang Putih : --><?//=$item['bawangputih']?><!--</h2>-->
-<!--        <h2>Kacang Tanah : --><?//=$item['kacanghijau']?><!--</h2>-->
-<!--        <h2>Kacang Hijau : --><?//=$item['kacangtanah']?><!--</h2>-->
-<!--        <h2>Kol : --><?//=$item['kol']?><!--</h2>-->
-<!--        <h2>Tomat : --><?//=$item['tomat']?><!--</h2>-->
-<!--        <h2>Wortel : --><?//=$item['wortel']?><!--</h2>-->
-<!--        <h2>Buncis : --><?//=$item['buncis']?><!--</h2>-->
-<!--        --><?php
-//    }
-//
-//    ?>
+    <?php
+    foreach ($list as $item) {
+        ?>
+        <h2>Beras : <?=$item['beras']?></h2>
+        <h2>Jagung : <?=$item['jagung']?></h2>
+        <h2>Kedelai : <?=$item['kedelai']?></h2>
+        <h2>Cabe : <?=$item['cabe']?></h2>
+        <h2>Bawang Merah : <?=$item['bawangmerah']?></h2>
+        <h2>Bawang Putih : <?=$item['bawangputih']?></h2>
+        <h2>Kacang Tanah : <?=$item['kacanghijau']?></h2>
+        <h2>Kacang Hijau : <?=$item['kacangtanah']?></h2>
+        <h2>Kol : <?=$item['kol']?></h2>
+        <h2>Tomat : <?=$item['tomat']?></h2>
+        <h2>Wortel : <?=$item['wortel']?></h2>
+        <h2>Buncis : <?=$item['buncis']?></h2>
+        <?php
+    }
+
+    ?>
 </section>
 </body>
 

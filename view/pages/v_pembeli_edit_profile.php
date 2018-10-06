@@ -69,7 +69,7 @@
                                 <hr>
                                 <input type="text" name="username" placeholder="Username" value="<?= $item['username']?>" required>
                                 <hr>
-                                <input type="text" name="password" placeholder="Password" required>
+                                <input type="text" name="password" placeholder="Password" value="<?= $item['password']?>" required>
                                 <hr>
                                 <input type="submit" value="Update">
                                 <br><br>

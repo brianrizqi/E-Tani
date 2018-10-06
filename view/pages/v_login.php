@@ -14,23 +14,12 @@
         <input type="hidden" name="controller" value="login">
         <input type="hidden" name="action" value="auth">
         <p>Nama Pengguna</p>
-        <input type="text" name="username" placeholder="Nama Pengguna" id="username" >
+        <input type="text" name="username" placeholder="Nama Pengguna" id="username" required autofocus>
         <p>Kata Sandi</p>
-        <input type="password" name="password" placeholder="Kata Sandi" id="password">
-<!--        <center>--><?php //echo $error ?><!--</center>-->
+        <input type="password" name="password" placeholder="Kata Sandi" id="password" required>
         <input type="submit" value="Masuk">
         <a href="#">Forget Password</a>
     </form>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $("#formLogin").submit(function(){
-        var user = $("#username").val();
-        var pass = $("#password").val();
-        if (user == "" || pass == "") {
-            alert("Mohon Di Isi!1!1");
-        }
-    });
-</script>
 </body>
 </html>

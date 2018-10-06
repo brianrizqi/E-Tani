@@ -37,50 +37,41 @@
 </header>
 <section id="content-area">
     <div class="heading">
-        <br>
-        <center><h1>Produk</h1></center>
-        <br>
     </div>
-    <div class="container">
-        <table class="table" style="margin-top: 30px;">
-            <tr>
-                <th>No</th>
-                <th>Nama Tanaman</th>
-                <th>Harga</th>
-                <th>Stok</th>
-                <th>Action</th>
-            </tr>
+    <div class="form-tanam-penjual">
+        <?php
+        foreach ($list as $item) {
+            ?>
+            <form enctype="multipart/form-data" method="post">
+                <input type="hidden" name="controller" value="produk">
+                <input type="hidden" name="action" value="editPenjualProduk">
+                <input type="hidden" name="id_produk" value="<?= $item['id_produk']?>">
+                <p>Nama Produk</p>
+                <select name="nama_produk">
+                    <option value="beras">Beras</option>
+                    <option value="jagung">Jagung</option>
+                    <option value="kedelai">Kedelai</option>
+                    <option value="cabe">Cabai</option>
+                    <option value="bawangmerah">Bawang Merah</option>
+                    <option value="bawangputih">Bawang Putih</option>
+                    <option value="kacanghijau">Kacang Hijau</option>
+                    <option value="kacangtanah">Kacang Tanah</option>
+                    <option value="kol">Kol</option>
+                    <option value="tomat">Tomat</option>
+                    <option value="wortel">Wortel</option>
+                    <option value="buncis">Buncis</option>
+                </select>
+                <p>Harga</p>
+                <input type="number" name="harga" placeholder="Harga Produk" value="<?= $item['harga'] ?>">
+                <p>Stok</p>
+                <input type="number" name="stok" placeholder="Stok Tanaman" value="<?= $item['stok'] ?>">
+                <input name="foto_produk" type="file" value="<?= $item['stok'] ?>">
+                <input type="submit" name="input" value="Edit">
+            </form>
             <?php
-            $no = 1;
-            foreach ($list as $item) {
-                ?>
-                <tr>
-                    <td><?= $no ?></td>
-                    <td hidden><?= $item['id_produk'] ?></td>
-                    <td><?= $item['nama_produk'] ?></td>
-                    <td><?= number_format($item['harga'], 0, ".", "."); ?></td>
-                    <!--                    <td>--><? //= $item['harga'] ?><!--</td>-->
-                    <td><?= $item['stok'] ?></td>
-                    <td>
-                        <a href="?controller=produk&action=tampilEditProduk&id_produk=<?= $item['id_produk'] ?>"
-                           class="btn btn-success" name="edit"><span class="fa fa-pencil-square-o"></span></a>
-                        <a href="?controller=produk&action=detailPenjualProduk&id_produk=<?= $item['id_produk'] ?>"
-                           class="btn btn-primary"
-                           name="detail"><span class="fa fa-eye"></span></a>
-                        <a href="?controller=produk&action=hapusPenjualProduk&id_produk=<?= $item['id_produk'] ?>"
-                           class="btn btn-danger" name="detail"><span class="fa fa-trash"></span></a>
-                    </td>
-                </tr>
-                <?php
-                $no++;
-            } ?>
-        </table>
+        }
+        ?>
     </div>
-    <a href="?controller=produk&action=tampilPenjualTambahProduk">
-        <div id="fab">
-            <span class="fa fa-plus"></span>
-        </div>
-    </a>
 </section>
 </body>
 

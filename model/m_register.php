@@ -27,11 +27,18 @@ values ('$nama','$email','$alamat','$notelp','$poin','$username','$password','$l
     public static function editPenjual($id_user, $nama, $email, $alamat, $username, $password, $notelp)
     {
         global $con;
-        $sql = "UPDATE `users` SET `nama`='$nama',`email`='$email',`alamat`='$alamat',
+        if ($password=="") {
+            $sql = "UPDATE `users` SET `nama`='$nama',`email`='$email',`alamat`='$alamat',
+`no_telp`='$notelp',`username`='$username' WHERE id_user = $id_user";
+            $result = mysqli_query($con, $sql);
+        } else {
+            $sql1 = "UPDATE `users` SET `nama`='$nama',`email`='$email',`alamat`='$alamat',
 `no_telp`='$notelp',`username`='$username',`password`='$password' WHERE id_user = $id_user";
-        $result = mysqli_query($con, $sql);
-        return $result;
+            $result1 = mysqli_query($con, $sql1);
+        }
+        return $result1;
     }
+
     public static function editAdmin($id_user, $nama, $email, $alamat, $username, $password, $notelp)
     {
         global $con;
@@ -40,6 +47,7 @@ values ('$nama','$email','$alamat','$notelp','$poin','$username','$password','$l
         $result = mysqli_query($con, $sql);
         return $result;
     }
+
     public static function editPembeli($id_user, $nama, $email, $alamat, $username, $password, $notelp)
     {
         global $con;

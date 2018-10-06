@@ -16,6 +16,7 @@
         <a href="?controller=produk&action=tampilPenjualProduk"><i class="fa fa-shopping-bag"
                                                                                   aria-hidden="true"></i> Produk</a>
         <a href="?controller=transaksi&action=showPenjualTransaksi"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Transaksi</a>
+        <a href="?controller=home&action=hargaPenjual"><i class="fa fa-line-chart" aria-hidden="true"></i> Harga Pasar</a>
     </nav>
 </section>
 <header>
@@ -57,8 +58,6 @@
                                 <br>
                                 <br>
                                 <h3 style="color: white;"><?php echo $item['nama']; ?></h3>
-                                <small class="label label-warning" style="color: white;">Poin : <?= $item['poin'] ?></small>
-                                <br><br>
                                 <p style="color: white;">Alamat : <?=$item['alamat']?></p>
                                 <p style="color: white;">No Telp : <?=$item['no_telp']?></p>
                                 <a href="?controller=user&action=editPenjual" class="btn btn-primary" style="width: 100px">Edit</a>

@@ -14,10 +14,10 @@
             <input type="hidden" name="action" value="createPembeli">
             <input type="text" name="nama" placeholder="Nama" required>
             <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="alamat" placeholder="Alamat">
-            <input type="number" name="notelp" placeholder="No Telp">
-            <input type="text" name="username" placeholder="Nama Pengguna">
-            <input type="password" name="password" placeholder="Kata Sandi">
+            <input type="text" name="alamat" placeholder="Alamat" required>
+            <input type="number" name="notelp" placeholder="No Telp" required>
+            <input type="text" name="username" placeholder="Nama Pengguna" required>
+            <input type="password" name="password" placeholder="Kata Sandi" required>
             <input type="radio" name="level" value="3" checked> Pembeli
             <input type="radio" name="level" value="2"> Petani
             <input type="submit" name="regis" value="Daftar">

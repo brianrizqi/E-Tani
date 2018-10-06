@@ -4,39 +4,26 @@ class Home
 {
     public static function bacaHTML($url)
     {
-
-        // inisialisasi CURL
-
         $data = curl_init();
-
-        // setting CURL
 
         curl_setopt($data, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($data, CURLOPT_URL, $url);
 
-        // menjalankan CURL untuk membaca isi file
-
         $hasil = curl_exec($data);
 
         curl_close($data);
-
-//        return $hasil;
 
         $dom = new DomDocument();
         @$dom->loadHTML($hasil);
 
         $classname = "table table-bordered table-hover table-condensed";
 
-
-//mencari class memakai dom query
-
         $finder = new DomXPath($dom);
 
         $spaner = $finder->query("//*[contains(@class, '$classname')]");
 
         $span = $spaner->item(0);
-// mengambil semua tag td//
         $harga = $span->getElementsByTagName('td');
         $data = [];
         $data[] = array(

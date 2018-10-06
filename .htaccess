@@ -1,0 +1,27 @@
+#RewriteEngine off
+
+#RewriteBase /
+
+#RedirectMatch ^/$
+
+
+
+
+
+RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php/$1 [L]
+
+RewriteRule ^index.php/([0-9a-zA-Z]+)/([0-9a-zA-Z]+) ?controller=$1&action=$2
+RewriteRule ^/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+) ?controller=$1&action=$2&id_produk=$3
+
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+
+
+#RedirectMatch ^/$ http://localhost/E-Tani/index.php/
+#RewriteRule ^index?$ index.php
+#RewriteRule ^(.*)$ -
+#RewriteRule ^(.*)$ index.php?/$1 [L]
+

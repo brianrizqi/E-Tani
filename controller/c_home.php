@@ -4,18 +4,18 @@ class HomeController
 {
     public function home()
     {
-//        $list = Produk::tampilSemuaProduk();
+        $list = Produk::tampilSemuaProduk();
         require_once 'view/pages/home.php';
     }
 
     public function homeAdmin()
     {
         if (isset($_SESSION['user'])) {
-//            $html = ("localhost/agri_web/scraping.php");
-//            $list = Home::bacaHTML("localhost/agri_web/scraping.php");
+            $list = Home::bacaHTML("localhost/E-tani/scraping.php");
             require_once("view/pages/v_admin.php");
         } else {
-            header('location:index.php?controller=login&action=login');
+//            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -27,10 +27,22 @@ class HomeController
             header('location:index.php?controller=login&action=login');
         }
     }
-    public function homePembeli(){
-        if (isset($_SESSION['user'])){
-//            $list = Produk::tampilSemuaProduk();
-            require_once ('view/pages/v_pembeli.php');
+
+    public function homePembeli()
+    {
+        if (isset($_SESSION['user'])) {
+            $list = Produk::tampilSemuaProduk();
+            require_once('view/pages/v_pembeli.php');
+        } else {
+            header('location:index.php?controller=login&action=login');
+        }
+    }
+
+    public function hargaPenjual()
+    {
+        if (isset($_SESSION['user'])) {
+            $list = Home::bacaHTML("localhost/E-tani/scraping.php");
+            require_once("view/pages/v_penjual_harga_pasar.php");
         } else {
             header('location:index.php?controller=login&action=login');
         }

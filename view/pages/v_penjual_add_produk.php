@@ -11,12 +11,13 @@
     <nav>
         <center><p>Hei <?= $_SESSION['user'] ?> !</p></center>
         <a href="?controller=home&action=homePenjual"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        <a class="active" href="?controller=tanam&action=showPenjualTanam"><i class="fa fa-leaf" aria-hidden="true"></i>
-            Tanam</a>
-        <a href="?controller=produk&action=tampilPenjualProduk"><i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            Produk</a>
+        <a href="?controller=user&action=showPenjual"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a>
+        <a class="active" href="?controller=produk&action=tampilPenjualProduk"><i class="fa fa-shopping-bag"
+                                                                                  aria-hidden="true"></i> Produk</a>
         <a href="?controller=transaksi&action=showPenjualTransaksi"><i class="fa fa-shopping-cart"
                                                                        aria-hidden="true"></i> Transaksi</a>
+        <a href="?controller=home&action=hargaPenjual"><i class="fa fa-line-chart" aria-hidden="true"></i> Harga
+            Pasar</a>
     </nav>
 </section>
 <header>
@@ -42,9 +43,22 @@
             <input type="hidden" name="controller" value="produk">
             <input type="hidden" name="action" value="tambahPenjualProduk">
             <p>Nama Produk</p>
-            <input type="text" name="nama_produk" placeholder="Nama Produk" required>
+            <select name="nama_produk">
+                <option value="beras">Beras</option>
+                <option value="jagung">Jagung</option>
+                <option value="kedelai">Kedelai</option>
+                <option value="cabe">Cabai</option>
+                <option value="bawangmerah">Bawang Merah</option>
+                <option value="bawangputih">Bawang Putih</option>
+                <option value="kacanghijau">Kacang Hijau</option>
+                <option value="kacangtanah">Kacang Tanah</option>
+                <option value="kol">Kol</option>
+                <option value="tomat">Tomat</option>
+                <option value="wortel">Wortel</option>
+                <option value="buncis">Buncis</option>
+            </select>
             <p>Harga</p>
-            <input type="number" name="harga" placeholder="Harga Produk" required>
+            <input type="number" name="harga" placeholder="Harga Produk" >
             <p>Stok</p>
             <input type="number" name="stok" placeholder="Stok Tanaman" required>
             <input name="foto_produk" type="file">

@@ -18,10 +18,12 @@ class LoginController
         } else if (Login::cekAkun($_POST['username'],$_POST['password'])==1){
             $_SESSION['user'] = $_POST['username'];
             header("Location:index.php?controller=home&action=homeAdmin");
+//            header("http://localhost/E-Tani/index.php/home/homeAdmin");
         } else if (Login::cekAkun($_POST['username'],$_POST['password'])==2){
             $_SESSION['user'] = $_POST['username'];
             $_SESSION['a'] = $_SESSION['id_user'];
             header("Location:index.php?controller=home&action=homePenjual");
+//            header("http://localhost/E-Tani/index.php/home/homePenjual");
         } else if (Login::cekAkun($_POST['username'],$_POST['password'])==3){
             $_SESSION['user'] = $_POST['username'];
             header("Location:index.php?controller=home&action=homePembeli");

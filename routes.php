@@ -8,7 +8,7 @@ function call($controller, $action)
         case 'home':
             $controller = new HomeController();
             require_once ('model/m_home.php');
-//            require_once ('model/m_produk.php');
+            require_once ('model/m_produk.php');
             break;
         case 'login':
             $controller = new LoginController();
@@ -20,6 +20,7 @@ function call($controller, $action)
             break;
         case 'produk':
             $controller = new ProdukController();
+            require_once ('model/m_home.php');
             require_once ('model/m_produk.php');
             break;
         case 'register':

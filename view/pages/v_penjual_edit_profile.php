@@ -18,6 +18,7 @@
                                                                    aria-hidden="true"></i> Produk</a>
         <a href="?controller=transaksi&action=showPenjualTransaksi"><i class="fa fa-shopping-cart"
                                                                        aria-hidden="true"></i> Transaksi</a>
+        <a href="?controller=home&action=hargaPenjual"><i class="fa fa-line-chart" aria-hidden="true"></i> Harga Pasar</a>
     </nav>
 </section>
 <header>
@@ -55,7 +56,7 @@
                 <input type="text" name="username" placeholder="Username" value="<?= $item['username'] ?>" required
                        autofocus>
                 <p>Password</p>
-                <input type="text" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password">
                 <input type="submit" value="Update" name="regis">
             </form>
             <?php

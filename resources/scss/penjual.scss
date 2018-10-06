@@ -211,7 +211,7 @@ textarea:focus {
   font-size: 16px;
 }
 
-.form-tanam-penjual input[type="text"] {
+.form-tanam-penjual input[type="text"],input[type='password'] {
   border: none;
   border-bottom: 1px solid #000000;
   background: transparent;
@@ -220,14 +220,13 @@ textarea:focus {
   color: #000;
   font-size: 16px;
 }
-
-.form-tanam-penjual input[type="date"] {
+.form-tanam-penjual input[type="number"] {
   border: none;
   border-bottom: 1px solid #000000;
   background: transparent;
   outline: none;
   height: 40px;
-  color: #000000;
+  color: #000;
   font-size: 16px;
 }
 

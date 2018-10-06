@@ -37,33 +37,33 @@
 
         <h1>Selamat Datang di E-Tani</h1>
         <h2>Apakah anda ingin membeli?</h2>
-        <a href="#" class="btn-link">Kuy</a>
+        <a href="?controller=produk&action=semuaProduk" class="btn-link">mari belanja</a>
 
     </div>
 
 </div>
 
 <div class="container">
-<!--    <div class="row">-->
-<!--        --><?php
-//        foreach ($list as $item){
-//            ?>
-<!--            <div class="col-sm-3">-->
-<!--                <div class="card_home">-->
-<!--                    <div class="card" style="width:250px">-->
-<!--                        <img class="card-img-top" src="gambar/--><?//=$item['gambar']?><!--" alt="Card image" style="height: 250px">-->
-<!--                        <div class="card-body">-->
-<!--                            <h4 class="card-title">--><?//=$item['nama_tanaman'] ?><!--</h4>-->
-<!--                            <p class="card-text">--><?//="Rp. ".number_format($item['harga'],0,".",".")?><!--</p>-->
-<!--                            <a href="?controller=login&action=login" class="btn btn-success">Buy</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            --><?php
-//        }
-//        ?>
-<!--    </div>-->
+    <div class="row">
+        <?php
+        foreach ($list as $item){
+            ?>
+            <div class="col-sm-3">
+                <div class="card_home">
+                    <div class="card" style="width:250px">
+                        <img class="card-img-top" src="gambar/<?=$item['gambar']?>" alt="Card image" style="height: 250px">
+                        <div class="card-body">
+                            <h4 class="card-title"><?=$item['nama_produk'] ?></h4>
+                            <p class="card-text"><?="Rp. ".number_format($item['harga'],0,".",".")?></p>
+                            <a href="?controller=login&action=login" class="btn btn-success">Buy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
 </div>
 </body>
 </html>
