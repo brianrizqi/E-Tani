@@ -16,21 +16,21 @@
 
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="?controller=home&action=home">Home</a>
+            <a class="nav-link" href="index.php/home/home">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="?controller=produk&action=semuaProduk">Product</a>
+            <a class="nav-link" href="index.php/produk/semuaProduk">Produk</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="v_contact.php">Contact</a>
+            <a class="nav-link" href="v_contact.php">Kontak</a>
         </li>
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="?controller=register&action=register">Sign Up</a>
+            <a class="nav-link" href="index.php/register/register">Daftar</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="?controller=login&action=login">Sign In</a>
+            <a class="nav-link" href="index.php/login/login">Masuk</a>
         </li>
     </ul>
 </nav>
@@ -50,7 +50,7 @@
                                 <h4 class="card-title"><?= $item['nama_produk'] ?></h4>
                                 <h5 class="card-text"><?= $item['nama'] ?></h5>
                                 <p class="card-text"><?="Rp. ".number_format($item['harga'],0,".",".")?></p>
-                                <a href="?controller=login&action=login" class="btn btn-success">Buy</a>
+                                <a href="index.php/login/login" class="btn btn-success">Buy</a>
                             </div>
                         </div>
                     </div>

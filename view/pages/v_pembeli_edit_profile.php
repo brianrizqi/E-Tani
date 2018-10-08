@@ -11,10 +11,10 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="?controller=home&action=homePembeli">Home</a>
+            <a class="nav-link" href="index.php/home/homePembeli">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="v_pembeli_product.php">Product</a>
+            <a class="nav-link" href="index.php/produk/tampilPembeliProduk">Product</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="v_contact.php">Cart</a>
@@ -25,7 +25,7 @@
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="?controller=user&action=showPembeli"><?= $_SESSION['user'] ?></a>
+            <a class="nav-link" href="index.php/user/showPembeli"><?= $_SESSION['user'] ?></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>

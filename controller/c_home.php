@@ -14,7 +14,6 @@ class HomeController
             $list = Home::bacaHTML("localhost/E-tani/scraping.php");
             require_once("view/pages/v_admin.php");
         } else {
-//            header('location:index.php?controller=login&action=login');
             header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
@@ -24,7 +23,7 @@ class HomeController
         if (isset($_SESSION['user'])) {
             require_once('view/pages/v_penjual.php');
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -34,7 +33,7 @@ class HomeController
             $list = Produk::tampilSemuaProduk();
             require_once('view/pages/v_pembeli.php');
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -44,7 +43,7 @@ class HomeController
             $list = Home::bacaHTML("localhost/E-tani/scraping.php");
             require_once("view/pages/v_penjual_harga_pasar.php");
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 }

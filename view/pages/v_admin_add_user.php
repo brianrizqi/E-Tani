@@ -9,9 +9,11 @@
 <body class="body-admin">
 <section id="sideMenu">
     <nav>
-        <a href="v_admin.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        <a href="v_admin_verif.php"><i class="fa fa-check-square-o" aria-hidden="true"></i> Verification</a>
-        <a class="active" href="v_admin_regis.php"><i class="fa fa-address-card" aria-hidden="true"></i> Registrasi</a>
+        <a href="index.php/home/homeAdmin"><i class="fa fa-home" aria-hidden="true"></i>
+            Home</a>
+        <a class="active" href="index.php/user/regisAdmin"><i class="fa fa-address-card" aria-hidden="true"></i>
+            Daftar</a>
+        <a href="index.php/user/showUser"><i class="fa fa-address-card" aria-hidden="true"></i> Profile</a>
     </nav>
 </section>
 <header>
@@ -23,7 +25,7 @@
         <a href="#" class="notification">
             <i class="fa fa-bell-o" aria-hidden="true"></i>
             <span class="circle-bell">3</span></a>
-        <a href="home.php">
+        <a href="logout.php">
             <div class="admin-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
         </a>

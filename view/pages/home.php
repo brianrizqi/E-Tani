@@ -14,10 +14,10 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="?controller=home&action=home">Home</a>
+            <a class="nav-link" href="index.php/home/home">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="?controller=produk&action=semuaProduk">Produk</a>
+            <a class="nav-link" href="index.php/produk/semuaProduk">Produk</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="v_contact.php">Kontak</a>
@@ -25,10 +25,10 @@
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="?controller=register&action=register">Daftar</a>
+            <a class="nav-link" href="index.php/register/register">Daftar</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="?controller=login&action=login">Masuk</a>
+            <a class="nav-link" href="index.php/login/login">Masuk</a>
         </li>
     </ul>
 </nav>
@@ -37,7 +37,7 @@
 
         <h1>Selamat Datang di E-Tani</h1>
         <h2>Apakah anda ingin membeli?</h2>
-        <a href="?controller=produk&action=semuaProduk" class="btn-link">mari belanja</a>
+        <a href="index.php/produk/semuaProduk" class="btn-link">mari belanja</a>
 
     </div>
 
@@ -55,7 +55,7 @@
                         <div class="card-body">
                             <h4 class="card-title"><?=$item['nama_produk'] ?></h4>
                             <p class="card-text"><?="Rp. ".number_format($item['harga'],0,".",".")?></p>
-                            <a href="?controller=login&action=login" class="btn btn-success">Buy</a>
+                            <a href="index.php/login/login" class="btn btn-success">Buy</a>
                         </div>
                     </div>
                 </div>

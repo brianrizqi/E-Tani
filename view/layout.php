@@ -5,6 +5,7 @@ session_start();
 <html>
 <head>
     <title>E-Tani</title>
+    <base href="http://localhost/E-Tani/"></base>
 </head>
 <body>
 <?php

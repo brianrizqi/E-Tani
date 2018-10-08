@@ -9,11 +9,11 @@
 <body class="body-admin">
 <section id="sideMenu">
     <nav>
-        <a href="?controller=home&action=homeAdmin"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        <a href="?controller=user&action=regisAdmin"><i class="fa fa-address-card" aria-hidden="true"></i>
+        <a href="index.php/home/homeAdmin"><i class="fa fa-home" aria-hidden="true"></i>
+            Home</a>
+        <a href="index.php/user/regisAdmin"><i class="fa fa-address-card" aria-hidden="true"></i>
             Daftar</a>
-        <a class="active" href="?controller=user&action=showUser"><i class="fa fa-address-card"
-                                                                       aria-hidden="true"></i> Profile</a>
+        <a class="active" href="index.php/user/showUser"><i class="fa fa-address-card" aria-hidden="true"></i> Profile</a>
     </nav>
 </section>
 <header>
@@ -60,7 +60,7 @@
                                 <br><br>
                                 <p style="color: white;">Alamat : <?=$item['alamat']?></p>
                                 <p style="color: white;">No Telp : <?=$item['no_telp']?></p>
-                                <a href="?controller=user&action=editAdmin" class="btn btn-primary" style="width: 100px">Edit</a>
+                                <a href="index.php/user/editAdmin" class="btn btn-primary" style="width: 100px">Edit</a>
                                 <br><br><br>
                             </div>
                         </div>

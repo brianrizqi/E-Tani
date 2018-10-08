@@ -30,7 +30,7 @@
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="?controller=user&action=showPembeli"><?= $_SESSION['user'] ?></a>
+            <a class="nav-link" href="index.php/user/showPembeli"><?= $_SESSION['user'] ?></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
@@ -53,7 +53,7 @@
                                 <h4 class="card-title"><?= $item['nama_produk'] ?></h4>
                                 <h5 class="card-text"><?= $item['nama'] ?></h5>
                                 <p class="card-text"><?="Rp. ".number_format($item['harga'],0,".",".")?></p>
-                                <a href="?controller=produk&action=tampilPenjualDetailProduk&id_produk=<?= $item['id_produk'] ?>" class="btn btn-success">Buy</a>
+                                <a href="index.php/produk/tampilPenjualDetailProduk/<?= $item['id_produk'] ?>" class="btn btn-success">Buy</a>
                             </div>
                         </div>
                     </div>

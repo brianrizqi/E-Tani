@@ -2,33 +2,13 @@
 
 class ProdukController
 {
-    public function verifAdmin()
-    {
-        if (isset($_SESSION['user'])) {
-            $list = Produk::tampilAdminProduk();
-            require_once('view/pages/v_admin_verif.php');
-        } else {
-            header('location:index.php?controller=login&action=login');
-        }
-    }
-
-    public function verifAdminProduk()
-    {
-        if ($_SESSION['user']) {
-            $list = Produk::verifAdminProduk($_GET['id_produk']);
-            header("Location: ?controller=produk&action=verifAdmin");
-        } else {
-            header('location:index.php?controller=login&action=login');
-        }
-    }
-
     public function detailAdminProduk()
     {
         if (isset($_SESSION['user'])) {
             $list = Produk::detailAdminProduk($_GET['id_produk']);
             require_once('view/pages/v_admin_detail_produk.php');
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -39,7 +19,7 @@ class ProdukController
             echo $_SESSION['id_user'];
             require_once('view/pages/v_penjual_produk.php');
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -48,7 +28,7 @@ class ProdukController
         if (isset($_SESSION['user'])) {
             require_once('view/pages/v_penjual_add_produk.php');
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -74,7 +54,7 @@ class ProdukController
                 if (move_uploaded_file($tmp, $path)) {
                     $produk = Produk::tambahPenjualProduk($_SESSION['id_user'], $_POST['nama_produk'], $_POST['harga']
                         , $_POST['stok'], $gambar);
-                    header("Location: index.php?controller=produk&action=tampilPenjualProduk");
+                    header("Location: http://localhost/E-Tani/index.php/produk/tampilPenjualProduk");
                 }
             }
         }
@@ -92,7 +72,7 @@ class ProdukController
             $list = Produk::detailPenjualProduk($_GET['id_produk']);
             require_once('view/pages/v_penjual_detail_produk.php');
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -100,9 +80,9 @@ class ProdukController
     {
         if (isset($_SESSION['user'])) {
             $hapus = Produk::hapusPenjualProduk($_GET['id_produk']);
-            header("Location: index.php?controller=produk&action=tampilPenjualProduk");
+            header("Location: http://localhost/E-Tani/index.php/produk/tampilPenjualProduk");
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -118,7 +98,7 @@ class ProdukController
             $list = Produk::semuaProduk();
             require_once('view/pages/v_pembeli_produk.php');
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -128,7 +108,7 @@ class ProdukController
             $list = Produk::tampilEditProduk($_GET['id_produk']);
             require_once('view/pages/v_penjual_edit_produk.php');
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 
@@ -150,7 +130,7 @@ class ProdukController
                 } else {
                     if (!file_exists($_FILES['foto_produk']['tmp_name'])) {
                         $produk = Produk::editPenjualProduk($_POST['id_produk'], $_POST['nama_produk'], $_POST['harga'], $_POST['stok'], $_POST['gambar']);
-                        header("Location: index.php?controller=produk&action=tampilPenjualProduk");
+                        header("Location: http://localhost/E-Tani/index.php/produk/tampilPenjualProduk");
                     } else {
                         $foto = $_FILES['foto_produk']['name'];
                         $tmp = $_FILES['foto_produk']['tmp_name'];
@@ -158,14 +138,14 @@ class ProdukController
                         $path = "gambar/" . $gambar;
                         if (move_uploaded_file($tmp, $path)) {
                             $produk = Produk::editPenjualProduk($_POST['id_produk'], $_POST['nama_produk'], $_POST['harga'], $_POST['stok'], $gambar);
-                            header("Location: index.php?controller=produk&action=tampilPenjualProduk");
+                            header("Location: http://localhost/E-Tani/index.php/produk/tampilPenjualProduk");
                         }
                     }
                 }
 
             }
         } else {
-            header('location:index.php?controller=login&action=login');
+            header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
 }
