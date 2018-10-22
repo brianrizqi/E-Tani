@@ -15,21 +15,21 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.php/home/homePembeli">Home</a>
+            <a class="nav-link" href="?controller=home&action=homePembeli">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="index.php/produk/tampilPembeliProduk">Product</a>
+            <a class="nav-link" href="?controller=produk&action=tampilPembeliProduk">Product</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="v_contact.php">Cart</a>
+            <a class="nav-link" href="?controller=keranjang&action=showCartPembeli">Cart</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="v_contact.php">Transaksi</a>
+            <a class="nav-link" href="?controller=transaksi&action=showPembeliTransaksi">Transaksi</a>
         </li>
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.php/user/showPembeli"><?= $_SESSION['user'] ?></a>
+            <a class="nav-link" href="?controller=user&action=showPembeli"><?= $_SESSION['user'] ?></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
@@ -42,7 +42,7 @@
 
         <h1>Selamat Datang di E-Tani</h1>
         <h2>Apakah anda ingin membeli?</h2>
-        <a href="#" class="btn-link">Kuy</a>
+        <a href="#" class="btn-link">Mari Belanja</a>
 
     </div>
 
@@ -61,7 +61,7 @@
                         <div class="card-body">
                             <h4 class="card-title"><?= $item['nama_produk'] ?></h4>
                             <p class="card-text"><?= "Rp. " . number_format($item['harga'], 0, ".", ".") ?></p>
-                            <a href="index.php/produk/tampilPenjualDetailProduk/id_produk/<?= $item['id_produk'] ?>" class="btn btn-success">Buy</a>
+                            <a href="?controller=produk&action=tampilPenjualDetailProduk&id_produk=<?= $item['id_produk'] ?>" class="btn btn-success">Buy</a>
                         </div>
                     </div>
                 </div>

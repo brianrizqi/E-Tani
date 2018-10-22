@@ -17,7 +17,7 @@
             <a class="nav-link" href="index.php/produk/tampilPembeliProduk">Product</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="v_contact.php">Cart</a>
+            <a class="nav-link" href="index.php/keranjang/showCartPembeli">Cart</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="v_contact.php">Transaksi</a>
@@ -25,7 +25,7 @@
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.php/user/showPembeli><?= $_SESSION['user'] ?></a>
+            <a class="nav-link" href="index.php/user/showPembeli"> <?= $_SESSION['user'] ?> </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
@@ -33,28 +33,31 @@
     </ul>
 </nav>
 <div class="product-card">
-    <?php
-    foreach ($list
-
-    as $item) {
-    ?>
-    <div class="product-stock">Stok : <?= $item['stok'] ?></div>
-    <div class="product-image">
-        <img src="gambar/<?= $item['gambar'] ?>" alt="">
-    </div>
-    <div class="product-details">
-        <span class="product-seller">Penjual : <?= $item['nama'] ?></span>
-        <h4><a href=""><?= $item['nama_produk'] ?></a></h4>
-        <br>
-        <div class="product-bottom-details">
-            <div class="product-price">Rp. <?= number_format($item['harga'], 0, ".", ".") ?>/kg</div>
-            <div class="product-value">
-                <input type="number" name="jumlah" class="form-control" placeholder="Jumlah">
-            </div>
+    <form>
+        <input type="hidden" name="controller" value="keranjang">
+        <input type="hidden" name="action" value="tambahCart">
+        <?php
+        foreach ($list as $item) {
+        ?>
+        <input name="id_produk" type="hidden" value="<?= $item['id_produk'] ?>">
+        <div class="product-stock">Stok : <?= $item['stok'] ?></div>
+        <div class="product-image">
+            <img src="gambar/<?= $item['gambar'] ?>" alt="">
         </div>
-        <?php } ?>
-        <a href="v_pembeli.php" class="btn btn-primary">BELI</a>
-    </div>
+        <div class="product-details">
+            <span class="product-seller">Penjual : <?= $item['nama'] ?></span>
+            <h4><a href=""><?= $item['nama_produk'] ?></a></h4>
+            <br>
+            <div class="product-bottom-details">
+                <div class="product-price">Rp. <?= number_format($item['harga'], 0, ".", ".") ?>/kg</div>
+                <div class="product-value">
+                    <input type="number" name="jumlah" class="form-control" placeholder="Jumlah" required>
+                </div>
+            </div>
+            <?php } ?>
+            <input type="submit" class="btn btn-primary" value="Beli" style="width: 100%">
+        </div>
+    </form>
 </div>
 </body>
 </html>

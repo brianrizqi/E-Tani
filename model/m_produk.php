@@ -207,7 +207,8 @@ VALUES ($id_user,'$nama_produk',$harga,CURDATE(),$stok,'$gambar')";
         foreach ($result1 as $item) {
             $url_gambar = $item['gambar'];
         }
-        if (strcasecmp($url_gambar, $gambar) == 0) {
+//        if (strcasecmp($url_gambar,$gambar)==0){
+        if ($gambar == "") {
             $sql2 = ("UPDATE `produk` SET `nama_produk`='$nama_produk',`harga`=$harga,
 `stok`=$stok WHERE id_produk =  $id_produk");
             $result2 = mysqli_query($con, $sql2);

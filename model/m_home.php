@@ -29,7 +29,7 @@ class Home
         $data[] = array(
             'beras' => $harga->item(11)->nodeValue,
             'jagung' => $harga->item(172)->nodeValue,
-            'kedelai' => $harga->item(228)->nodeValue,
+            'kedelai' => $harga->item(221)->nodeValue,
             'cabe' => $harga->item(263)->nodeValue,
             'bawangmerah' => $harga->item(277)->nodeValue,
             'bawangputih' => $harga->item(284)->nodeValue,

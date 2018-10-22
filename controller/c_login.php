@@ -16,18 +16,18 @@ class LoginController
             <?php
             require_once ('view/pages/v_login.php');
         } else if (Login::cekAkun($_POST['username'],$_POST['password'])==1){
+            Login::showNotif();
             $_SESSION['user'] = $_POST['username'];
-//            header("Location:index.php?controller=home&action=homeAdmin");
-            header("Location: http://localhost/E-Tani/index.php/home/homeAdmin");
+            header("Location:http://localhost/E-Tani/index.php?controller=home&action=homeAdmin");
+//            header("Location: http://localhost/E-Tani/index.php/home/homeAdmin");
         } else if (Login::cekAkun($_POST['username'],$_POST['password'])==2){
             $_SESSION['user'] = $_POST['username'];
-            $_SESSION['a'] = $_SESSION['id_user'];
 //            header("Location:index.php?controller=home&action=homePenjual");
             header("Location: http://localhost/E-Tani/index.php/home/homePenjual");
         } else if (Login::cekAkun($_POST['username'],$_POST['password'])==3){
             $_SESSION['user'] = $_POST['username'];
-//            header("Location:index.php?controller=home&action=homePembeli");
-            header("Location: http://localhost/E-Tani/index.php/home/homePembeli");
+            header("Location:http://localhost/E-Tani/index.php?controller=home&action=homePembeli");
+//            header("Location: http://localhost/E-Tani/index.php/home/homePembeli");
         }
     }
 

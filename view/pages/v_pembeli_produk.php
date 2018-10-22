@@ -19,18 +19,18 @@
             <a class="nav-link" href="?controller=home&action=homePembeli">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="?controller=produk&action=semuaProduk">Product</a>
+            <a class="nav-link" href="?controller=produk&action=tampilPembeliProduk">Product</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="v_contact.php">Cart</a>
+            <a class="nav-link" href="?controller=keranjang&action=showCartPembeli">Cart</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="v_contact.php">Transaksi</a>
+            <a class="nav-link" href="?controller=transaksi&action=showPembeliTransaksi">Transaksi</a>
         </li>
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.php/user/showPembeli"><?= $_SESSION['user'] ?></a>
+            <a class="nav-link" href="?controller=user&action=showPembeli"><?= $_SESSION['user'] ?></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
@@ -51,9 +51,9 @@
                             <img class="card-img-top" src="gambar/<?= $item['gambar'] ?>" alt="Card image" style="height: 250px">
                             <div class="card-body">
                                 <h4 class="card-title"><?= $item['nama_produk'] ?></h4>
-                                <h5 class="card-text"><?= $item['nama'] ?></h5>
+                                <h5 class="card-text">Penjual : <?= $item['nama'] ?></h5>
                                 <p class="card-text"><?="Rp. ".number_format($item['harga'],0,".",".")?></p>
-                                <a href="index.php/produk/tampilPenjualDetailProduk/<?= $item['id_produk'] ?>" class="btn btn-success">Buy</a>
+                                <a href="?controller=produk&action=tampilPenjualDetailProduk&id_produk=<?= $item['id_produk'] ?>" class="btn btn-success">Buy</a>
                             </div>
                         </div>
                     </div>

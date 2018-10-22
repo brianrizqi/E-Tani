@@ -10,8 +10,12 @@ class Register
         $poin = 0;
         $sql = "insert into users (`nama`,`email`,`alamat`,`no_telp`,`poin`,`username`,`password`,`level`)
 values ('$nama','$email','$alamat','$notelp','$poin','$username','$password','$level')";
-        $result = mysqli_query($con, $sql);
-        return $result;
+        if (mysqli_query($con, $sql)) {
+            return 1;
+        } else if (mysqli_errno($con) == 1062) {
+            return 0;
+        }
+
     }
 
     public function createPembeli($nama, $email, $alamat, $username, $password, $notelp, $level)
@@ -20,14 +24,18 @@ values ('$nama','$email','$alamat','$notelp','$poin','$username','$password','$l
         $poin = 0;
         $sql = "insert into users (`nama`,`email`,`alamat`,`no_telp`,`poin`,`username`,`password`,`level`)
 values ('$nama','$email','$alamat','$notelp','$poin','$username','$password','$level')";
-        $result = mysqli_query($con, $sql);
-        return $result;
+
+        if (mysqli_query($con, $sql)) {
+            return 1;
+        } else if (mysqli_errno($con) == 1062) {
+            return 0;
+        }
     }
 
     public static function editPenjual($id_user, $nama, $email, $alamat, $username, $password, $notelp)
     {
         global $con;
-        if ($password=="") {
+        if ($password == "") {
             $sql = "UPDATE `users` SET `nama`='$nama',`email`='$email',`alamat`='$alamat',
 `no_telp`='$notelp',`username`='$username' WHERE id_user = $id_user";
             $result = mysqli_query($con, $sql);

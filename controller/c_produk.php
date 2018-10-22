@@ -42,11 +42,19 @@ class ProdukController
         foreach ($list as $item) {
             $hargaa = $item[$_POST['nama_produk']];
             $harga2 = str_replace(".", "", $hargaa);
-            if ($_POST['harga'] > ($harga2 + 2000)) {
+            if ($_POST['harga'] > ($harga2 + ($harga2 * 0.1))) {
                 ?>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                 <script>
                     alert("Harga Terlalu mahal");
+                </script>
+                <?php
+                require_once('view/pages/v_penjual_add_produk.php');
+            } else if ($_POST['harga'] < ($harga2 - ($harga2 * 0.1))) {
+                ?>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script>
+                    alert("Harga Terlalu murah");
                 </script>
                 <?php
                 require_once('view/pages/v_penjual_add_produk.php');
@@ -119,14 +127,22 @@ class ProdukController
             foreach ($list as $item) {
                 $hargaa = $item[$_POST['nama_produk']];
                 $harga2 = str_replace(".", "", $hargaa);
-                if ($_POST['harga'] > ($harga2 + 2000)) {
+                if ($_POST['harga'] > ($harga2 + ($harga2 * 0.1))) {
                     ?>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                     <script>
                         alert("Harga Terlalu mahal");
                     </script>
                     <?php
-                    require_once('view/pages/v_penjual_edit_produk.php');
+                    require_once('view/pages/v_penjual_add_produk.php');
+                } else if ($_POST['harga'] < ($harga2 - ($harga2 * 0.1))) {
+                    ?>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <script>
+                        alert("Harga Terlalu murah");
+                    </script>
+                    <?php
+                    require_once('view/pages/v_penjual_add_produk.php');
                 } else {
                     if (!file_exists($_FILES['foto_produk']['tmp_name'])) {
                         $produk = Produk::editPenjualProduk($_POST['id_produk'], $_POST['nama_produk'], $_POST['harga'], $_POST['stok'], $_POST['gambar']);

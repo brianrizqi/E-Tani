@@ -11,21 +11,21 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.php/home/homePembeli">Home</a>
+            <a class="nav-link" href="?controller=home&action=homePembeli">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="index.php/produk/tampilPembeliProduk">Product</a>
+            <a class="nav-link" href="?controller=produk&action=tampilPembeliProduk">Product</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="v_contact.php">Cart</a>
+            <a class="nav-link" href="?controller=keranjang&action=showCartPembeli">Cart</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="v_contact.php">Transaksi</a>
+            <a class="nav-link" href="?controller=transaksi&action=showPembeliTransaksi">Transaksi</a>
         </li>
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.php/user/showPembeli"><?= $_SESSION['user'] ?></a>
+            <a class="nav-link" href="?controller=user&action=showPembeli"><?= $_SESSION['user'] ?></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
@@ -57,7 +57,7 @@
                             <br>
                             <br>
                             <h3 style="color: white;"><?php echo $item['nama']; ?></h3>
-                            <small class="label label-warning" style="color: white;">Poin : <?= $item['poin'] ?></small>
+                            <small class="label label-warning" style="color: white;">Koin : <?= $item['poin'] ?></small>
                             <br><br>
                             <p style="color: white;">Alamat : <?=$item['alamat']?></p>
                             <p style="color: white;">No Telp : <?=$item['no_telp']?></p>

@@ -53,7 +53,7 @@
                 <input type="text" name="username" placeholder="Username" value="<?= $item['username'] ?>" required
                        autofocus>
                 <p>Password</p>
-                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="password" placeholder="Password" required>
                 <input type="submit" value="Update" name="regis">
             </form>
             <?php

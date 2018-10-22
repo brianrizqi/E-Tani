@@ -9,11 +9,12 @@
 <body class="body-admin">
 <section id="sideMenu">
     <nav>
-        <a href="index.php/home/homeAdmin"><i class="fa fa-home" aria-hidden="true"></i>
+        <a href="?controller=home&action=homeAdmin"><i class="fa fa-home" aria-hidden="true"></i>
             Home</a>
-        <a href="index.php/user/regisAdmin"><i class="fa fa-address-card" aria-hidden="true"></i>
+        <a href="?controller=user&action=regisAdmin"><i class="fa fa-address-card" aria-hidden="true"></i>
             Daftar</a>
-        <a class="active" href="index.php/user/showUser"><i class="fa fa-address-card" aria-hidden="true"></i> Profile</a>
+        <a class="active" href="?controller=user&action=showUser"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a>
+        <a href="?controller=transaksi&action=showAdmin"><i class="fa fa-check-square-o" aria-hidden="true"></i> Verif Transaksi</a>
     </nav>
 </section>
 <header>
@@ -22,9 +23,9 @@
         <input type="text" name="" value="">
     </div>
     <div class="admin-field">
-        <a href="#" class="notification">
+        <a href="?controller=transaksi&action=showAdmin" class="notification">
             <i class="fa fa-bell-o" aria-hidden="true"></i>
-            <span class="circle-bell">3</span></a>
+            <span class="circle-bell"><?=$_SESSION['notif']?></span></a>
         <a href="logout.php">
             <div class="admin-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -43,9 +44,6 @@
                     <div class="panel panel-default" style="border:none; border-radius: 5px 5px 10px 10px;">
                         <div class="panel-heading" style="background-color: #526485; border: none;">
                             <header class="panel-title">
-                                <div class="text-center">
-                                    <strong style="color: white;">Profile</strong>
-                                </div>
                             </header>
                         </div>
                         <div class="panel-body"
@@ -53,11 +51,8 @@
                             <div class="text-center" id="author">
                                 <br>
                                 <img src="resources/images/man.png" style="width: 190px; height: 180px;">
-                                <br>
-                                <br>
-                                <h3 style="color: white;"><?php echo $item['nama']; ?></h3>
-                                <small class="label label-warning" style="color: white;">Poin : <?= $item['poin'] ?></small>
                                 <br><br>
+                                <h3 style="color: white;"><?php echo $item['nama']; ?></h3>
                                 <p style="color: white;">Alamat : <?=$item['alamat']?></p>
                                 <p style="color: white;">No Telp : <?=$item['no_telp']?></p>
                                 <a href="index.php/user/editAdmin" class="btn btn-primary" style="width: 100px">Edit</a>

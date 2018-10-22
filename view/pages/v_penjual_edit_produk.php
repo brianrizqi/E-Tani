@@ -45,6 +45,7 @@
                 <input type="hidden" name="id_produk" value="<?= $item['id_produk']?>">
                 <p>Nama Produk</p>
                 <select name="nama_produk">
+                    <option value="<?=$item['nama_produk']?>"><?=$item['nama_produk']?></option>
                     <option value="beras">Beras</option>
                     <option value="jagung">Jagung</option>
                     <option value="kedelai">Kedelai</option>
@@ -62,7 +63,7 @@
                 <input type="number" name="harga" placeholder="Harga Produk" value="<?= $item['harga'] ?>">
                 <p>Stok</p>
                 <input type="number" name="stok" placeholder="Stok Tanaman" value="<?= $item['stok'] ?>">
-                <input name="foto_produk" type="file" value="<?= $item['stok'] ?>">
+                <input name="foto_produk" type="file" value="">
                 <input type="submit" name="input" value="Edit">
             </form>
             <?php

@@ -36,7 +36,7 @@
 <section id="content-area">
     <div class="heading">
         <br>
-        <center><h1>Produk</h1></center>
+        <center><h1>Transaksi</h1></center>
         <br>
     </div>
     <div class="container">
@@ -45,33 +45,38 @@
                 <th>No</th>
                 <th>Nama Produk</th>
                 <th>Nama Pembeli</th>
+                <th>Tanggal</th>
                 <th>Harga</th>
                 <th>Jumlah(Kg)</th>
-                <th>Action</th>
+                <th>Status</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>Beras</td>
-                <td>rizqi</td>
-                <td><?= number_format(12000, 0, ".", "."); ?></td>
-                <td>2</td>
-                <td>
-                    <a href="?controller=produk&action=tampilEditProduk&id_produk=<?= $item['id_produk'] ?>"
-                       class="btn btn-success" name="edit"><span class="fa fa-check-square-o"></span></a>
-                    <a href="?controller=produk&action=detailPenjualProduk&id_produk=<?= $item['id_produk'] ?>"
-                       class="btn btn-primary"
-                       name="detail"><span class="fa fa-eye"></span></a>
-                    <a href="?controller=produk&action=hapusPenjualProduk&id_produk=<?= $item['id_produk'] ?>"
-                       class="btn btn-danger" name="detail"><span class="fa fa-trash"></span></a>
-                </td>
-            </tr>
+            <?php
+            $no = 1;
+            foreach ($list as $item) {
+                ?>
+                <tr>
+                    <td><?=$no?></td>
+                    <td><?=$item['nama_produk']?></td>
+                    <td><?=$item['pembeli']?></td>
+                    <td><?=$item['tanggal']?></td>
+                    <td><?= number_format($item['total_harga'], 0, ".", "."); ?></td>
+                    <td><?=$item['jumlah']?></td>
+                    <?php
+                    $status="";
+                    if ($item['verif'] == 0){
+                        $status = "Belum Lunas";
+                    } else {
+                        $status = "Lunas";
+                    }
+                    ?>
+                    <td><?=$status?></td>
+                </tr>
+                <?php
+                $no++;
+            }
+            ?>
         </table>
     </div>
-    <a href="?controller=produk&action=tampilPenjualTambahProduk">
-        <div id="fab">
-            <span class="fa fa-plus"></span>
-        </div>
-    </a>
 </section>
 </body>
 
