@@ -35,7 +35,7 @@
     <div class="admin-field">
         <a href="?controller=transaksi&action=showAdmin" class="notification">
             <i class="fa fa-bell-o" aria-hidden="true"></i>
-            <span class="circle-bell"><?=$_SESSION['notif']?></span></a>
+            <span class="circle-bell"><?= $_SESSION['notif'] ?></span></a>
         <a href="logout.php">
             <div class="admin-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -47,14 +47,20 @@
         <div class="heading">
             <br>
         </div>
+        <?php
+        foreach ($bukti as $item) {
+            ?>
+            <center><img src="bukti/<?= $item['bukti'] ?>" style="height: 200px;"></center>
+        <?php } ?>
+        <br>
         <table class="table table-bordered">
 
             <tr>
                 <th>No</th>
                 <th>Nama Produk</th>
                 <th>Nama Penjual</th>
+                <th>Alamat</th>
                 <th>Jumlah</th>
-                <th>Gambar</th>
                 <th>Total Harga</th>
             </tr>
             <?php
@@ -65,8 +71,8 @@
                     <td><?= $no ?></td>
                     <td><?= $item['nama_produk'] ?></td>
                     <td><?= $item['nama'] ?></td>
+                    <td><?=$item['alamat']?></td>
                     <td><?= $item['jumlah'] ?></td>
-                    <td><img src="bukti/<?=$item['bukti']?>" style="height: 200px;" ></td>
                     <td><?= $item['total_harga'] ?></td>
                 </tr>
                 <?php

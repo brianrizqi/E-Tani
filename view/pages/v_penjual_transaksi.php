@@ -24,9 +24,6 @@
         <input type="text" name="" value="">
     </div>
     <div class="penjual-field">
-        <a href="#" class="notification">
-            <i class="fa fa-bell-o" aria-hidden="true"></i>
-            <span class="circle-bell">3</span></a>
         <a href="logout.php">
             <div class="penjual-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -45,6 +42,7 @@
                 <th>No</th>
                 <th>Nama Produk</th>
                 <th>Nama Pembeli</th>
+                <th>Alamat</th>
                 <th>Tanggal</th>
                 <th>Harga</th>
                 <th>Jumlah(Kg)</th>
@@ -58,6 +56,7 @@
                     <td><?=$no?></td>
                     <td><?=$item['nama_produk']?></td>
                     <td><?=$item['pembeli']?></td>
+                    <td><?=$item['alamat']?></td>
                     <td><?=$item['tanggal']?></td>
                     <td><?= number_format($item['total_harga'], 0, ".", "."); ?></td>
                     <td><?=$item['jumlah']?></td>

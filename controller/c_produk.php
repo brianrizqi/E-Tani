@@ -16,7 +16,6 @@ class ProdukController
     {
         if (isset($_SESSION['user'])) {
             $list = Produk::tampilPenjualProduk($_SESSION['id_user']);
-            echo $_SESSION['id_user'];
             require_once('view/pages/v_penjual_produk.php');
         } else {
             header('location:http://localhost/E-Tani/index.php/login/login');

@@ -12,8 +12,10 @@
         <center><p>Hei <?= $_SESSION['user'] ?> !</p></center>
         <a href="index.php/home/homePenjual"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
         <a href="index.php/user/showPenjual"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a>
-        <a class="active" href="index.php/produk/tampilPenjualProduk"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Produk</a>
-        <a href="index.php/transaksi/showPenjualTransaksi"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Transaksi</a>
+        <a class="active" href="index.php/produk/tampilPenjualProduk"><i class="fa fa-shopping-bag"
+                                                                         aria-hidden="true"></i> Produk</a>
+        <a href="index.php/transaksi/showPenjualTransaksi"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Transaksi</a>
         <a href="index.php/home/hargaPenjual"><i class="fa fa-line-chart" aria-hidden="true"></i> Harga Pasar</a>
     </nav>
 </section>
@@ -23,9 +25,6 @@
         <input type="text" name="" value="">
     </div>
     <div class="penjual-field">
-        <a href="#" class="notification">
-            <i class="fa fa-bell-o" aria-hidden="true"></i>
-            <span class="circle-bell">3</span></a>
         <a href="logout.php">
             <div class="penjual-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -65,7 +64,8 @@
                            class="btn btn-primary"
                            name="detail"><span class="fa fa-eye"></span></a>
                         <a href="index.php/produk/hapusPenjualProduk/<?= $item['id_produk'] ?>"
-                           class="btn btn-danger" name="detail"><span class="fa fa-trash"></span></a>
+                           class="btn btn-danger" name="detail" onclick="return confirm('apakah data akan dihapus?')">
+                            <span class="fa fa-trash"></span></a>
                     </td>
                 </tr>
                 <?php

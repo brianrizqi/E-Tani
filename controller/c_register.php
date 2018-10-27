@@ -9,18 +9,17 @@ class RegisterController
 
     public function createPembeli()
     {
-//        $User = Register::createPembeli($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']
-//            , $_POST['level']);
-        if ($User = Register::createPembeli($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']
-                , $_POST['level']) == 0) {
+        $User = Register::createPembeli($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']
+            , $_POST['level']);
+        if ($User == 0) {
             ?>
             <script>
                 alert("nama pengguna telah ada");
             </script>
             <?php
 //            header('location:http://localhost/E-Tani/index.php/register/register');
-        } else if ($User = Register::createPembeli($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']
-                , $_POST['level']) == 1) {
+            require_once ('view/pages/v_register.php');
+        } else if ($User == 1) {
             header('location:http://localhost/E-Tani/index.php/login/login');
         }
     }
@@ -42,6 +41,7 @@ class RegisterController
             </script>
             <?php
 //            header('location:http://localhost/E-Tani/index.php/register/register');
+            require_once ('view/pages/v_register.php');
         } else if ($User = Register::createPembeli($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']
                 , $_POST['level']) == 1) {
             header('location:http://localhost/E-Tani/index.php/login/login');

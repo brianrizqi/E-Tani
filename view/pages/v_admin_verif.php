@@ -87,10 +87,14 @@
                     <td><?= $status ?></td>
                     <td>
                         <a href="?controller=transaksi&action=verifAdmin&id_transaksi=<?=$item['id_transaksi']?>"
-                           class="btn btn-success" name="edit"><span class="fa fa-check-square-o"></span></a>
+                           class="btn btn-success" name="edit"
+                           onclick="return confirm('Apakah data akan di verif?')><span class="fa fa-check-square-o"></span></a>
                         <a href="?controller=transaksi&action=showDetailAdmin&id_transaksi=<?=$item['id_transaksi']?>"
                            class="btn btn-primary"
                            name="detail"><span class="fa fa-eye"></span></a>
+                        <a href="?controller=transaksi&action=deleteTransaksi&id_transaksi=<?=$item['id_transaksi']?>"
+                           class="btn btn-danger"
+                           name="detail" onclick="return confirm('Apakah data akan di hapus?')"><span class="fa fa-trash"></span></a>
                     </td>
                 </tr>
                 <?php

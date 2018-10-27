@@ -16,6 +16,7 @@ class TransaksiController
     {
         if (isset($_SESSION['user'])) {
             $list = Transaksi::detailTransaksiAdmin($_GET['id_transaksi']);
+            $bukti = Transaksi::detailBuktiAdmin($_GET['id_transaksi']);
             require_once("view/pages/v_admin_detail_transaksi.php");
         } else {
             header('location:http://localhost/E-Tani/index.php/login/login');
@@ -76,6 +77,12 @@ class TransaksiController
     public function verifAdmin()
     {
         $list = Transaksi::verifAdmin($_GET['id_transaksi']);
+        header("location:index.php?controller=transaksi&action=showAdmin");
+    }
+
+    public function deleteTransaksi()
+    {
+        $list = Transaksi::deleteTransaksi($_GET['id_transaksi']);
         header("location:index.php?controller=transaksi&action=showAdmin");
     }
 }

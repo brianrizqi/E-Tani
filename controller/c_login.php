@@ -14,7 +14,7 @@ class LoginController
                 alert("Username / Password salah");
             </script>
             <?php
-            require_once ('view/pages/v_login.php');
+            require_once ('view/pages/v_logign.php');
         } else if (Login::cekAkun($_POST['username'],$_POST['password'])==1){
             Login::showNotif();
             $_SESSION['user'] = $_POST['username'];

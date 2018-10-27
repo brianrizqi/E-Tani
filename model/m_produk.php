@@ -7,7 +7,7 @@ Class Produk
     {
         global $con;
         $list = [];
-        $sql = "select * from produk  
+        $sql = "select * from produk where stok > 0  
 order by id_produk desc limit 0,4";
         $result = mysqli_query($con, $sql);
         foreach ($result as $item) {
@@ -25,7 +25,7 @@ order by id_produk desc limit 0,4";
     {
         global $con;
         $list = [];
-        $sql = "select * from produk p join users u on p.id_user = u.id_user 
+        $sql = "select * from produk p join users u on p.id_user = u.id_user where stok > 0 
 order by p.id_produk desc";
         $result = mysqli_query($con, $sql);
         foreach ($result as $item) {
@@ -207,7 +207,6 @@ VALUES ($id_user,'$nama_produk',$harga,CURDATE(),$stok,'$gambar')";
         foreach ($result1 as $item) {
             $url_gambar = $item['gambar'];
         }
-//        if (strcasecmp($url_gambar,$gambar)==0){
         if ($gambar == "") {
             $sql2 = ("UPDATE `produk` SET `nama_produk`='$nama_produk',`harga`=$harga,
 `stok`=$stok WHERE id_produk =  $id_produk");

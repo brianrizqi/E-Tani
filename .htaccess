@@ -15,6 +15,7 @@ RewriteEngine On
 
 RewriteRule ^index.php/([0-9a-zA-Z]+)/([0-9a-zA-Z]+) ?controller=$1&action=$2
 RewriteRule ^/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+) ?controller=$1&action=$2&id_produk=$3
+RewriteRule ^/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+) ?controller=$1&action=$2&id_produk=$3&jumlah=$4
 
 php_value upload_max_filesize 10M
 php_value post_max_size 10M

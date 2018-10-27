@@ -51,7 +51,7 @@
             <div class="product-bottom-details">
                 <div class="product-price">Rp. <?= number_format($item['harga'], 0, ".", ".") ?>/kg</div>
                 <div class="product-value">
-                    <input type="number" name="jumlah" class="form-control" placeholder="Jumlah" required>
+                    <input type="number" name="jumlah" class="form-control" placeholder="Jumlah" max="<?=$item['stok']?>" required>
                 </div>
             </div>
             <?php } ?>
