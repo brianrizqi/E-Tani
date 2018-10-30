@@ -61,12 +61,6 @@ class Keranjang
             $row = mysqli_fetch_assoc($result2);
             $id_transaksi = $row['id_transaksi'];
         }
-//        $sql4 = "select count(id_transaksi) as jumlah from detail_transaksi where id_transaksi = $id_transaksi";
-//        $result4 = mysqli_query($con, $sql4);
-//        if (mysqli_num_rows($result4) > 0) {
-//            $row = mysqli_fetch_assoc($result4);
-//            $tot = $row['jumlah'];
-//        }
         $tot = count($_SESSION['id_produk']);
         if ($koin > 0) {
             $sql5 = "update users set poin = 0 where id_user = $id_user";
