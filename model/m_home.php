@@ -42,6 +42,82 @@ class Home
         );
         return $data;
     }
+
+    public static function showPenjual($id_user)
+    {
+        global $con;
+        $list = [];
+        $sql = "select DISTINCT p.id_produk, nama_produk from produk p join detail_transaksi dt on p.id_produk = dt.id_produk where id_user = $id_user";
+        $result = mysqli_query($con, $sql);
+        foreach ($result as $item) {
+            $list[] = array(
+                'nama_produk' => $item['nama_produk'],
+                'id_produk' => $item['id_produk']
+            );
+        }
+        return $list;
+    }
+
+    public static function peramalan($id_user, $nama_produk)
+    {
+        global $con;
+        $sql = "select sum(detail_transaksi.jumlah) as jumlah, month(detail_transaksi.tanggal) as bulan from detail_transaksi 
+join produk on detail_transaksi.id_produk = produk.id_produk
+where produk.id_user = $id_user and produk.nama_produk = '$nama_produk'
+GROUP BY month(detail_transaksi.tanggal)";
+        $sql1 = "select sum(detail_transaksi.jumlah) as jumlah, month(detail_transaksi.tanggal) as bulan from detail_transaksi 
+join produk on detail_transaksi.id_produk = produk.id_produk
+where produk.id_user = $id_user and produk.nama_produk = '$nama_produk'
+GROUP BY month(detail_transaksi.tanggal)
+order by month(detail_transaksi.tanggal) desc limit 0,1";
+        $sql2 = "select sum(detail_transaksi.jumlah) as jumlah, month(detail_transaksi.tanggal) as bulan from detail_transaksi 
+join produk on detail_transaksi.id_produk = produk.id_produk
+where produk.id_user = $id_user and produk.nama_produk = '$nama_produk'
+GROUP BY month(detail_transaksi.tanggal)
+order by month(detail_transaksi.tanggal) desc limit 1,1";
+        $sql3 = "select sum(detail_transaksi.jumlah) as jumlah, month(detail_transaksi.tanggal) as bulan from detail_transaksi 
+join produk on detail_transaksi.id_produk = produk.id_produk
+where produk.id_user = $id_user and produk.nama_produk = '$nama_produk'
+GROUP BY month(detail_transaksi.tanggal)
+order by month(detail_transaksi.tanggal) desc limit 2,3";
+        $result1 = mysqli_query($con, $sql1);
+        $result2 = mysqli_query($con, $sql2);
+        $result3 = mysqli_query($con, $sql3);
+        $bulan1 = "";
+        $bulan2 = "";
+        $bulan3 = "";
+        $jumlah1 = 0;
+        $jumlah2 = 0;
+        $jumlah3 = 0;
+        $list = [];
+        if (mysqli_num_rows($result1)) {
+            while ($row = mysqli_fetch_assoc($result1)) {
+                $bulan1 = $row['bulan'];
+                $jumlah1 = $row['jumlah'];
+            }
+        }
+        if (mysqli_num_rows($result2)) {
+            $row = mysqli_fetch_assoc($result2);
+            $bulan2 = $row['bulan'];
+            $jumlah2 = $row['jumlah'];
+        }
+        if (mysqli_num_rows($result3)) {
+            $row = mysqli_fetch_assoc($result3);
+            $bulan3 = $row['bulan'];
+            $jumlah3 = $row['jumlah'];
+        }
+        $ramal = ($jumlah1 + $jumlah2 + $jumlah3) / 3;
+        $list[] = array(
+            'bulan1' => $bulan1,
+            'bulan2' => $bulan2,
+            'bulan3' => $bulan3,
+            'jumlah1' => $jumlah1,
+            'jumlah2' => $jumlah2,
+            'jumlah3' => $jumlah3,
+            'ramal' => $ramal
+        );
+        return $list;
+    }
 }
 
 ?>

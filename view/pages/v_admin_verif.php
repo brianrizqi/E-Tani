@@ -88,7 +88,7 @@
                     <td>
                         <a href="?controller=transaksi&action=verifAdmin&id_transaksi=<?=$item['id_transaksi']?>"
                            class="btn btn-success" name="edit"
-                           onclick="return confirm('Apakah data akan di verif?')><span class="fa fa-check-square-o"></span></a>
+                           onclick="return confirm('Apakah data akan di verif?')"><span class="fa fa-check-square-o"></span></a>
                         <a href="?controller=transaksi&action=showDetailAdmin&id_transaksi=<?=$item['id_transaksi']?>"
                            class="btn btn-primary"
                            name="detail"><span class="fa fa-eye"></span></a>

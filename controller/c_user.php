@@ -8,7 +8,7 @@ class UserController
             $list = User::showAllUser();
             require_once('view/pages/v_admin_regis.php');
         } else {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 
@@ -18,7 +18,7 @@ class UserController
             $list = User::showUser($_SESSION['id_user']);
             require_once('view/pages/v_admin_profile.php');
         } else {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 
@@ -28,7 +28,7 @@ class UserController
             $list = User::showUser($_SESSION['id_user']);
             require_once('view/pages/v_penjual_profile.php');
         } else {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 
@@ -38,7 +38,7 @@ class UserController
             $list = User::showUser($_SESSION['id_user']);
             require_once('view/pages/v_pembeli_profile.php');
         } else {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 
@@ -48,7 +48,7 @@ class UserController
             $list = User::showUser($_SESSION['id_user']);
             require_once('view/pages/v_penjual_edit_profile.php');
         } else {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 
@@ -58,7 +58,7 @@ class UserController
             $list = User::showUser($_SESSION['id_user']);
             require_once('view/pages/v_admin_edit_profile.php');
         } else {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 
@@ -68,7 +68,7 @@ class UserController
             $list = User::showUser($_SESSION['id_user']);
             require_once('view/pages/v_pembeli_edit_profile.php');
         } else {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 

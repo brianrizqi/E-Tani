@@ -48,7 +48,7 @@ class Keranjang
     }
 
 
-    public static function bayarCart($id_user, $id_produk, $jumlah)
+    public static function bayarCart($id_user, $id_produk, $jumlah, $koin)
     {
         global $con;
         $sql1 = "INSERT INTO transaksi (id_user,tanggal,verif,bukti) 
@@ -61,10 +61,28 @@ class Keranjang
             $row = mysqli_fetch_assoc($result2);
             $id_transaksi = $row['id_transaksi'];
         }
-        for ($i = 0; $i < count($_SESSION['id_produk']); $i++) {
-            $sql3 = "INSERT INTO `detail_transaksi`(`id_produk`, `id_transaksi`, `jumlah`, `total_harga`, `tanggal`)
-			VALUES (" . $_SESSION['id_produk'][$i] . ",$id_transaksi," . $_SESSION['jumlah'][$i] . ",(SELECT harga from produk where id_produk=" . $_SESSION['id_produk'][$i] . ")*" . $_SESSION['jumlah'][$i] . ",curdate())";
-            $result3 = mysqli_query($con, $sql3);
+//        $sql4 = "select count(id_transaksi) as jumlah from detail_transaksi where id_transaksi = $id_transaksi";
+//        $result4 = mysqli_query($con, $sql4);
+//        if (mysqli_num_rows($result4) > 0) {
+//            $row = mysqli_fetch_assoc($result4);
+//            $tot = $row['jumlah'];
+//        }
+        $tot = count($_SESSION['id_produk']);
+        if ($koin > 0) {
+            $sql5 = "update users set poin = 0 where id_user = $id_user";
+            mysqli_query($con, $sql5);
+            $total = $koin / $tot;
+            for ($i = 0; $i < count($_SESSION['id_produk']); $i++) {
+                $sql3 = "INSERT INTO `detail_transaksi`(`id_produk`, `id_transaksi`, `jumlah`, `total_harga`, `tanggal`)
+			VALUES (" . $_SESSION['id_produk'][$i] . ",$id_transaksi," . $_SESSION['jumlah'][$i] . ",((SELECT harga from produk where id_produk= " . $_SESSION['id_produk'][$i] . ")* " . $_SESSION['jumlah'][$i] . ")-$total,curdate())";
+                $result3 = mysqli_query($con, $sql3);
+            }
+        } else {
+            for ($i = 0; $i < count($_SESSION['id_produk']); $i++) {
+                $sql3 = "INSERT INTO `detail_transaksi`(`id_produk`, `id_transaksi`, `jumlah`, `total_harga`, `tanggal`)
+			VALUES (" . $_SESSION['id_produk'][$i] . ",$id_transaksi," . $_SESSION['jumlah'][$i] . ",(SELECT harga from produk where id_produk= " . $_SESSION['id_produk'][$i] . ")* " . $_SESSION['jumlah'][$i] . ",curdate())";
+                $result3 = mysqli_query($con, $sql3);
+            }
         }
         unset($_SESSION['id_produk']);
         unset($_SESSION['jumlah']);

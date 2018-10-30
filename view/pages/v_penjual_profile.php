@@ -10,12 +10,13 @@
 <body class="body-penjual">
 <section id="sideMenu">
     <nav>
-        <center><p>Hei <?= $_SESSION['user'] ?> !</p></center>
-        <a href="index.php/home/homePenjual"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        <a class="active" href="index.php/user/showPenjual"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a>
-        <a href="index.php/produk/tampilPenjualProduk"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Produk</a>
-        <a href="index.php/transaksi/showPenjualTransaksi"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Transaksi</a>
-        <a href="index.php/home/hargaPenjual"><i class="fa fa-line-chart" aria-hidden="true"></i> Harga Pasar</a>
+        <center><p>Hei <?= $_SESSION['user']; ?> !</p></center>
+        <a href="?controller=home&action=homePenjual"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        <a class="active" href="?controller=user&action=showPenjual"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a>
+        <a href="?controller=produk&action=tampilPenjualProduk"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Produk</a>
+        <a href="?controller=transaksi&action=showPenjualTransaksi"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Transaksi</a>
+        <a href="?controller=home&action=hargaPenjual"><i class="fa fa-line-chart" aria-hidden="true"></i> Harga Pasar</a>
     </nav>
 </section>
 <header>
@@ -56,7 +57,7 @@
                                 <h3 style="color: white;"><?php echo $item['nama']; ?></h3>
                                 <p style="color: white;">Alamat : <?=$item['alamat']?></p>
                                 <p style="color: white;">No Telp : <?=$item['no_telp']?></p>
-                                <a href="index.php/user/editPenjual" class="btn btn-primary" style="width: 100px">Edit</a>
+                                <a href="?controller=user&action=editPenjual" class="btn btn-primary" style="width: 100px">Edit</a>
                                 <br><br><br>
                             </div>
                         </div>

@@ -22,8 +22,8 @@ class LoginController
 //            header("Location: http://localhost/E-Tani/index.php/home/homeAdmin");
         } else if (Login::cekAkun($_POST['username'],$_POST['password'])==2){
             $_SESSION['user'] = $_POST['username'];
-//            header("Location:index.php?controller=home&action=homePenjual");
-            header("Location: http://localhost/E-Tani/index.php/home/homePenjual");
+            header("Location:http://localhost/E-Tani/index.php?controller=home&action=homePenjual");
+//            header("Location: http://localhost/E-Tani/index.php/home/homePenjual");
         } else if (Login::cekAkun($_POST['username'],$_POST['password'])==3){
             $_SESSION['user'] = $_POST['username'];
             header("Location:http://localhost/E-Tani/index.php?controller=home&action=homePembeli");

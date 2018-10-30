@@ -42,7 +42,7 @@
 
         <h1>Selamat Datang di E-Tani</h1>
         <h2>Apakah anda ingin membeli?</h2>
-        <a href="#" class="btn-link">Mari Belanja</a>
+        <a href="?controller=produk&action=tampilPembeliProduk" class="btn-link">Mari Belanja</a>
 
     </div>
 

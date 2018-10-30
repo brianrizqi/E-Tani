@@ -20,7 +20,7 @@ class RegisterController
 //            header('location:http://localhost/E-Tani/index.php/register/register');
             require_once ('view/pages/v_register.php');
         } else if ($User == 1) {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 
@@ -44,7 +44,7 @@ class RegisterController
             require_once ('view/pages/v_register.php');
         } else if ($User = Register::createPembeli($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']
                 , $_POST['level']) == 1) {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 
@@ -57,13 +57,13 @@ class RegisterController
     public function editAdmin()
     {
         $User = Register::editAdmin($_SESSION['id_user'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
-        header("Location: http://localhost/E-Tani/index.php/user/showUser");
+        header("Location: index.php?controller=user&action=showUser");
     }
 
     public function editPembeli()
     {
         $User = Register::editAdmin($_SESSION['id_user'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
-        header("Location: http://localhost/E-Tani/index.php/user/showPembeli");
+        header("Location: index.php?controller=user&action=showPembeli");
     }
 }
 

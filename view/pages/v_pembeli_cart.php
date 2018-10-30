@@ -88,10 +88,9 @@
                             }
                             ?>
                         </table>
-                        <form method="post">
-                            <input type="checkbox" name="poin" value="<?=$poin?>"> Gunakan poin, poin anda <?=$poin?>
-                        </form>
+                        <div>
 
+                        </div>
                         <button class="btn btn-primary" style="position: relative; left: 87%;" data-toggle="modal"
                                 data-target="#myModal">
                             Bayar
@@ -114,15 +113,22 @@
                                     <!-- Modal body -->
                                     <div class="modal-body">
                                         <p>Rekening BNI 739284012 as Miko</p>
-                                        <p>Total Pembelian : <?="Rp " . number_format($totalBayar, 0, ".", ".")?></p>
+                                        <p>Total Pembelian : <?= "Rp " . number_format($totalBayar, 0, ".", ".") ?></p>
                                     </div>
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <a href="?controller=keranjang&action=bayarCart">
-                                            <button type="button" class="btn btn-primary">Bayar
-                                            </button>
-                                        </a>
+                                        <form method="post">
+                                            <input type="hidden" name="controller" value="keranjang">
+                                            <input type="hidden" name="action" value="bayarCart">
+                                            <input type="checkbox" name="koin" value="<?= $poin ?>"> Gunakan
+                                            poin, poin anda <?= $poin ?>
+                                            <input type="submit" name="submit" class="btn btn-primary" value="Bayar">
+                                        </form>
+<!--                                        <a href="?controller=keranjang&action=bayarCart">-->
+<!--                                            <button type="button" class="btn btn-primary">Bayar-->
+<!--                                            </button>-->
+<!--                                        </a>-->
                                     </div>
 
                                 </div>

@@ -32,22 +32,56 @@
     </div>
 </header>
 <section id="content-area">
-    <div class="form-tanam-penjual">
-        <form>
-            <input type="hidden" name="controller" value="home">
-            <input type="hidden" name="action" value="peramalan">
-            <select name="nama_produk">
-                <?php
-                foreach ($list as $item) {
-                    ?>
-                    <option value="<?=$item['nama_produk']?>"><?=$item['nama_produk']?></option>
-                    <?php
+    <canvas id="myChart" width="700" height="200"></canvas>
+    <?php
+    $ramal;
+    foreach ($list as $item) {
+        ?>
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["<?=date('M',mktime(0,0,0,date($item['bulan3'])))?>",
+                    "<?=date('M',mktime(0,0,0,date($item['bulan2'])))?>",
+                    "<?=date('M',mktime(0,0,0,date($item['bulan1'])))?>",
+                ],
+                datasets: [{
+                    label: 'Penjualan',
+                    data: [<?=$item['jumlah3']?>,
+                        <?=$item['jumlah2']?>,
+                        <?=$item['jumlah1']?>
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
                 }
-                ?>
-            </select>
-            <input type="submit" class="btn btn-primary">
-        </form>
-    </div>
+            }
+        });
+    </script>
+    <?php
+    $ramal = $item['ramal'];
+    }
+
+    ?>
+    <br>
+    <h4>Penjualan kira-kira bulan <?=date('M',mktime(0,0,0,date('n')+1))." : ".$ramal."kg"?></h4>
 </section>
 </body>
 

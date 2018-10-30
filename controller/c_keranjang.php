@@ -17,7 +17,7 @@ class KeranjangController
             $poin = Keranjang::showPoin($_SESSION['id_user']);
             require_once("view/pages/v_pembeli_cart.php");
         } else {
-            header('location:http://localhost/E-Tani/index.php/login/login');
+            header("location:index.php?controller=login&action=login");
         }
     }
 
@@ -37,11 +37,11 @@ class KeranjangController
 
     public function bayarCart()
     {
-        $id_produk=$_SESSION["id_produk"];
-        $jumlah=$_SESSION["jumlah"];
-        $id_user=$_SESSION["id_user"];
-
-        $list=Keranjang::bayarCart($id_user,$id_produk,$jumlah);
+        $koin = $_POST['koin'];
+        $id_produk = $_SESSION["id_produk"];
+        $jumlah = $_SESSION["jumlah"];
+        $id_user = $_SESSION["id_user"];
+        $list = Keranjang::bayarCart($id_user, $id_produk, $jumlah, $koin);
         header("location:index.php?controller=transaksi&action=showPembeliTransaksi");
     }
 }

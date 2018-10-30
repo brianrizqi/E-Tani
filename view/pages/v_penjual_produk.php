@@ -9,14 +9,13 @@
 <body class="body-penjual">
 <section id="sideMenu">
     <nav>
-        <center><p>Hei <?= $_SESSION['user'] ?> !</p></center>
-        <a href="index.php/home/homePenjual"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        <a href="index.php/user/showPenjual"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a>
-        <a class="active" href="index.php/produk/tampilPenjualProduk"><i class="fa fa-shopping-bag"
-                                                                         aria-hidden="true"></i> Produk</a>
-        <a href="index.php/transaksi/showPenjualTransaksi"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <center><p>Hei <?= $_SESSION['user']; ?> !</p></center>
+        <a href="?controller=home&action=homePenjual"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        <a href="?controller=user&action=showPenjual"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a>
+        <a class="active" href="?controller=produk&action=tampilPenjualProduk"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Produk</a>
+        <a href="?controller=transaksi&action=showPenjualTransaksi"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
             Transaksi</a>
-        <a href="index.php/home/hargaPenjual"><i class="fa fa-line-chart" aria-hidden="true"></i> Harga Pasar</a>
+        <a href="?controller=home&action=hargaPenjual"><i class="fa fa-line-chart" aria-hidden="true"></i> Harga Pasar</a>
     </nav>
 </section>
 <header>
@@ -58,12 +57,12 @@
                     <!--                    <td>--><? //= $item['harga'] ?><!--</td>-->
                     <td><?= $item['stok'] ?></td>
                     <td>
-                        <a href="index.php/produk/tampilEditProduk/<?= $item['id_produk'] ?>"
+                        <a href="?controller=produk&action=tampilEditProduk&id_produk=<?= $item['id_produk'] ?>"
                            class="btn btn-success" name="edit"><span class="fa fa-pencil-square-o"></span></a>
-                        <a href="index.php/produk/detailPenjualProduk/<?= $item['id_produk'] ?>"
+                        <a href="?controller=produk&action=detailPenjualProduk&id_produk=<?= $item['id_produk'] ?>"
                            class="btn btn-primary"
                            name="detail"><span class="fa fa-eye"></span></a>
-                        <a href="index.php/produk/hapusPenjualProduk/<?= $item['id_produk'] ?>"
+                        <a href="?controller=produk&action=hapusPenjualProduk&id_produk=<?= $item['id_produk'] ?>"
                            class="btn btn-danger" name="detail" onclick="return confirm('apakah data akan dihapus?')">
                             <span class="fa fa-trash"></span></a>
                     </td>
@@ -73,7 +72,7 @@
             } ?>
         </table>
     </div>
-    <a href="index.php/produk/tampilPenjualTambahProduk">
+    <a href="?controller=produk&action=tampilPenjualTambahProduk">
         <div id="fab">
             <span class="fa fa-plus"></span>
         </div>

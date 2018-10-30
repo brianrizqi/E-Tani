@@ -21,9 +21,6 @@
         <li class="nav-item">
             <a class="nav-link" href="index.php/produk/semuaProduk">Produk</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="v_contact.php">Kontak</a>
-        </li>
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
