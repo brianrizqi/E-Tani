@@ -18,7 +18,7 @@ class RegisterController
             </script>
             <?php
 //            header('location:http://localhost/E-Tani/index.php/register/register');
-            require_once ('view/pages/v_register.php');
+            require_once('view/pages/v_register.php');
         } else if ($User == 1) {
             header("location:index.php?controller=login&action=login");
         }
@@ -31,8 +31,6 @@ class RegisterController
 
     public function createPetani()
     {
-//        $User = Register::createPetani($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
-//        header("Location: http://localhost/E-Tani/index.php/user/regisAdmin");
         if ($User = Register::createPembeli($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']
                 , $_POST['level']) == 0) {
             ?>
@@ -40,8 +38,7 @@ class RegisterController
                 alert("nama pengguna telah ada");
             </script>
             <?php
-//            header('location:http://localhost/E-Tani/index.php/register/register');
-            require_once ('view/pages/v_register.php');
+            require_once('view/pages/v_register.php');
         } else if ($User = Register::createPembeli($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']
                 , $_POST['level']) == 1) {
             header("location:index.php?controller=login&action=login");

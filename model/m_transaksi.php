@@ -114,12 +114,14 @@ class Transaksi
         $id_produk = array();
         $jumlah = array();
         $status = 0;
+        $total = 0;
         $sql2 = "SELECT * FROM detail_transaksi WHERE id_transaksi=$id_transaksi";
         $result2 = mysqli_query($con, $sql2);
         if (mysqli_num_rows($result2) > 0) {
             while ($row = mysqli_fetch_assoc($result2)) {
                 $id_produk[] = $row['id_produk'];
                 $jumlah[] = $row['jumlah'];
+
             }
         }
         $sql3 = "select * from transaksi where id_transaksi = $id_transaksi";
@@ -147,7 +149,13 @@ class Transaksi
             $row = mysqli_fetch_assoc($result5);
             $poin = $row['poin'];
         }
-        $koin = $poin + 5;
+        $sql7 = "select sum(total_harga) as total FROM detail_transaksi WHERE id_transaksi = $id_transaksi";
+        $result7 = $con->query($sql7);
+        if (mysqli_num_rows($result7)){
+            $row = mysqli_fetch_assoc($result7);
+            $total = $row['total'];
+        }
+        $koin = $poin + ($total*0.001);
         $sql6 = "update users set poin = $koin where id_user = $id_user";
         $result6 = mysqli_query($con,$sql6);
         $sql = "update transaksi set verif = 1 where id_transaksi = $id_transaksi";

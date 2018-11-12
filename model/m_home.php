@@ -106,7 +106,8 @@ order by month(detail_transaksi.tanggal) desc limit 2,3";
             $bulan3 = $row['bulan'];
             $jumlah3 = $row['jumlah'];
         }
-        $ramal = ($jumlah1 + $jumlah2 + $jumlah3) / 3;
+//        $ramal = ($jumlah1 + $jumlah2 + $jumlah3) / 3;
+        $ramal = (($jumlah1*1)+($jumlah2*2)+($jumlah3*3))/(3+2+1);
         $list[] = array(
             'bulan1' => $bulan1,
             'bulan2' => $bulan2,

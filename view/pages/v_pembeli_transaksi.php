@@ -48,7 +48,7 @@
             <div class="card_home">
                 <div class="card" style="width:100%">
                     <div class="card-body">
-                        <center><h2>Keranjang</h2></center>
+                        <center><h2>Transaksi</h2></center>
                         <br>
                         <table class="table table-bordered">
                             <thead>

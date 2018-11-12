@@ -14,7 +14,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.php/home/home">Home</a>
+            <a class="nav-link" href="?controller=home&action=home">Home</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="index.php/produk/semuaProduk">Produk</a>
