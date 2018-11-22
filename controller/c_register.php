@@ -47,19 +47,19 @@ class RegisterController
 
     public function editPenjual()
     {
-        $User = Register::editPenjual($_SESSION['id_user'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
+        $User = User::editPenjual($_SESSION['id_user'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
         header("Location: http://localhost/E-Tani/index.php/user/showPenjual");
     }
 
     public function editAdmin()
     {
-        $User = Register::editAdmin($_SESSION['id_user'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
+        $User = User::editAdmin($_SESSION['id_user'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
         header("Location: index.php?controller=user&action=showUser");
     }
 
     public function editPembeli()
     {
-        $User = Register::editAdmin($_SESSION['id_user'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
+        $User = User::editAdmin($_SESSION['id_user'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
         header("Location: index.php?controller=user&action=showPembeli");
     }
 }

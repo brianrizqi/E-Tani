@@ -88,6 +88,7 @@
                                     <td>
                                         <a href="?controller=transaksi&action=showDetailTransaksi&id_transaksi=<?=$item['id_transaksi']?>" class="btn btn-primary">Detail</a>
                                         <a href="?controller=transaksi&action=uploadTransaksi&id_transaksi=<?=$item['id_transaksi']?>" class="btn btn-success">Upload</a>
+                                        <a href="?controller=transaksi&action=deletePembeli&id_transaksi=<?=$item['id_transaksi']?>" class="btn btn-danger">Hapus</a>
                                     </td>
                                 </tr>
                                 </tbody>

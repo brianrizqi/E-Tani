@@ -32,6 +32,7 @@
     </div>
 </header>
 <section id="content-area">
+    <center><h2>Peramalan</h2></center>
     <div class="form-tanam-penjual">
         <form>
             <input type="hidden" name="controller" value="home">

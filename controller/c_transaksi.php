@@ -85,6 +85,14 @@ class TransaksiController
         $list = Transaksi::deleteTransaksi($_GET['id_transaksi']);
         header("location:index.php?controller=transaksi&action=showAdmin");
     }
+
+    public function deletePembeli()
+    {
+        $transaksi = Transaksi::deletePembeli($_GET['id_transaksi']);
+        $list = Transaksi::showTransaksiPembeli($_SESSION['id_user']);
+        require_once("view/pages/v_pembeli_transaksi.php");
+//        header('lcoation: localhost/E-Tani/index.php?controller=transaksi&action=showPembeliTransaksi');
+    }
 }
 
 ?>

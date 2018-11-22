@@ -57,7 +57,7 @@
             <p>Stok</p>
             <input type="number" name="stok" placeholder="Stok Tanaman" required>
             <input name="foto_produk" type="file">
-            <input type="submit" value="Input" name="input">
+            <input type="submit" value="Input" name="input" onclick="return confirm('Apakah data akan di masukkan?')">
         </form>
     </div>
 </section>

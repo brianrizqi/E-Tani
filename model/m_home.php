@@ -61,10 +61,6 @@ class Home
     public static function peramalan($id_user, $nama_produk)
     {
         global $con;
-        $sql = "select sum(detail_transaksi.jumlah) as jumlah, month(detail_transaksi.tanggal) as bulan from detail_transaksi 
-join produk on detail_transaksi.id_produk = produk.id_produk
-where produk.id_user = $id_user and produk.nama_produk = '$nama_produk'
-GROUP BY month(detail_transaksi.tanggal)";
         $sql1 = "select sum(detail_transaksi.jumlah) as jumlah, month(detail_transaksi.tanggal) as bulan from detail_transaksi 
 join produk on detail_transaksi.id_produk = produk.id_produk
 where produk.id_user = $id_user and produk.nama_produk = '$nama_produk'
@@ -84,8 +80,8 @@ order by month(detail_transaksi.tanggal) desc limit 2,3";
         $result2 = mysqli_query($con, $sql2);
         $result3 = mysqli_query($con, $sql3);
         $bulan1 = "";
-        $bulan2 = "";
-        $bulan3 = "";
+        $bulan2 = 0;
+        $bulan3 = 0;
         $jumlah1 = 0;
         $jumlah2 = 0;
         $jumlah3 = 0;
@@ -97,17 +93,22 @@ order by month(detail_transaksi.tanggal) desc limit 2,3";
             }
         }
         if (mysqli_num_rows($result2)) {
-            $row = mysqli_fetch_assoc($result2);
-            $bulan2 = $row['bulan'];
-            $jumlah2 = $row['jumlah'];
+            while ($row = mysqli_fetch_assoc($result2)) {
+                $bulan2 = $row['bulan'];
+                $jumlah2 = $row['jumlah'];
+            }
         }
         if (mysqli_num_rows($result3)) {
-            $row = mysqli_fetch_assoc($result3);
-            $bulan3 = $row['bulan'];
-            $jumlah3 = $row['jumlah'];
+            while ($row = mysqli_fetch_assoc($result3)) {
+                $bulan3 = $row['bulan'];
+                $jumlah3 = $row['jumlah'];
+            }
         }
-//        $ramal = ($jumlah1 + $jumlah2 + $jumlah3) / 3;
-        $ramal = (($jumlah1*1)+($jumlah2*2)+($jumlah3*3))/(3+2+1);
+        if ($bulan3 == 0 || $bulan2 == 0) {
+            $ramal = 0;
+        } else {
+            $ramal = (($jumlah1 * 1) + ($jumlah2 * 2) + ($jumlah3 * 3)) / (3 + 2 + 1);
+        }
         $list[] = array(
             'bulan1' => $bulan1,
             'bulan2' => $bulan2,

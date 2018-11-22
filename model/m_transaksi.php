@@ -151,13 +151,13 @@ class Transaksi
         }
         $sql7 = "select sum(total_harga) as total FROM detail_transaksi WHERE id_transaksi = $id_transaksi";
         $result7 = $con->query($sql7);
-        if (mysqli_num_rows($result7)){
+        if (mysqli_num_rows($result7)) {
             $row = mysqli_fetch_assoc($result7);
             $total = $row['total'];
         }
-        $koin = $poin + ($total*0.001);
+        $koin = $poin + ($total * 0.001);
         $sql6 = "update users set poin = $koin where id_user = $id_user";
-        $result6 = mysqli_query($con,$sql6);
+        $result6 = mysqli_query($con, $sql6);
         $sql = "update transaksi set verif = 1 where id_transaksi = $id_transaksi";
         $result = mysqli_query($con, $sql);
         return $result4;
@@ -203,6 +203,14 @@ class Transaksi
         unlink('bukti/' . $bukti);
         $sql = "delete from transaksi where id_transaksi = $id_transaksi";
         $result = mysqli_query($con, $sql);
+        return $result;
+    }
+
+    public static function deletePembeli($id_transaksi)
+    {
+        global $con;
+        $sql = "delete from transaksi where id_transaksi = $id_transaksi";
+        $result = mysqli_query($con,$sql);
         return $result;
     }
 

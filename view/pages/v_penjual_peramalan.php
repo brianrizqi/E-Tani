@@ -36,6 +36,7 @@
     <?php
     $ramal;
     foreach ($list as $item) {
+//        var_dump($item);
         ?>
     <script>
         var ctx = document.getElementById("myChart").getContext('2d');

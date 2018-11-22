@@ -36,7 +36,6 @@
 <div class="container">
     <?php
     foreach ($list as $item) {
-
         ?>
         <center>
             <div class="col-md-4" style="margin-top: 20px">
@@ -71,7 +70,7 @@
                                 <hr>
                                 <input type="text" name="password" placeholder="Password" required>
                                 <hr>
-                                <input type="submit" value="Update">
+                                <input type="submit" value="Simpan">
                                 <br><br>
                             </form>
                         </div>

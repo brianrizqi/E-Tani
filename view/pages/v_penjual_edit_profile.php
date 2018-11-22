@@ -52,7 +52,7 @@
                        autofocus>
                 <p>Password</p>
                 <input type="password" name="password" placeholder="Password" required>
-                <input type="submit" value="Update" name="regis">
+                <input type="submit" value="Simpan" name="regis">
             </form>
             <?php
         }

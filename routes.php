@@ -16,6 +16,7 @@ function call($controller, $action)
             break;
         case 'user':
             $controller = new UserController();
+            require_once ('model/m_register.php');
             require_once('model/m_user.php');
             break;
         case 'produk':
@@ -25,6 +26,7 @@ function call($controller, $action)
             break;
         case 'register':
             $controller = new RegisterController();
+            require_once ('model/m_user.php');
             require_once('model/m_register.php');
             break;
         case 'transaksi':
