@@ -32,7 +32,7 @@
             <a class="nav-link" href="?controller=user&action=showPembeli"><?= $_SESSION['user'] ?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="logout.php">Logout</a>
+            <a class="nav-link" href="logout.php" onclick="return confirm('Apakah Anda ingin keluar')">Logout</a>
         </li>
     </ul>
 </nav>

@@ -211,7 +211,16 @@ textarea:focus {
   font-size: 16px;
 }
 
-.form-tanam-penjual input[type="text"],input[type='password'] {
+.form-tanam-penjual input[type="text"],input[type='password']{
+  border: none;
+  border-bottom: 1px solid #000000;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #000;
+  font-size: 16px;
+}
+.form-tanam-penjual input[type='email']{
   border: none;
   border-bottom: 1px solid #000000;
   background: transparent;

@@ -17,10 +17,10 @@ class RegisterController
                 alert("nama pengguna telah ada");
             </script>
             <?php
-//            header('location:http://localhost/E-Tani/index.php/register/register');
+//            header('location:http://helloworlds.me/E-Tani/index.php/register/register');
             require_once('view/pages/v_register.php');
         } else if ($User == 1) {
-            header("location: http://localhost/E-Tani/index.php?controller=login&action=login");
+            header("location: http://helloworlds.me/E-Tani/index.php?controller=login&action=login");
         }
     }
 
@@ -41,14 +41,14 @@ class RegisterController
             require_once('view/pages/v_register.php');
         } else if ($User = Register::createPembeli($_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']
                 , $_POST['level']) == 1) {
-            header("location: http://localhost/E-Tani/index.php?controller=login&action=login");
+            header("location: http://helloworlds.me/E-Tani/index.php?controller=login&action=login");
         }
     }
 
     public function editPenjual()
     {
         $User = User::editPenjual($_SESSION['id_user'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['username'], md5($_POST['password']), $_POST['notelp']);
-        header("Location: http://localhost/E-Tani/index.php/user/showPenjual");
+        header("Location: index.php?controller=user&action=showPenjual");
     }
 
     public function editAdmin()

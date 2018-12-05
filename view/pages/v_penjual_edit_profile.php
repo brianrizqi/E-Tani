@@ -25,7 +25,7 @@
         <input type="text" name="" value="">
     </div>
     <div class="penjual-field">
-        <a href="logout.php">
+        <a href="logout.php" onclick="return confirm('Apakah Anda ingin keluar')">
             <div class="penjual-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
         </a>
@@ -40,9 +40,9 @@
                 <input type="hidden" name="controller" value="register">
                 <input type="hidden" name="action" value="editPenjual">
                 <p>Nama</p>
-                <input type="text" name="nama" placeholder="Nama" value="<?= $item['nama'] ?>" required>
+                <input type="text" name="nama" placeholder="Nama" value="<?= $item['nama'] ?>" required >
                 <p>Email</p>
-                <input type="text" name="email" placeholder="Email" value="<?= $item['email'] ?>" required>
+                <input type="email" name="email" placeholder="Email" value="<?= $item['email'] ?>" required>
                 <p>Alamat</p>
                 <input type="text" name="alamat" placeholder="Alamat" value="<?= $item['alamat'] ?>" required autofocus>
                 <p>No Telp</p>

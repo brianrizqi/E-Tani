@@ -24,7 +24,7 @@
         <input type="text" name="" value="">
     </div>
     <div class="penjual-field">
-        <a href="logout.php">
+        <a href="logout.php" onclick="return confirm('Apakah Anda ingin keluar')">
             <div class="penjual-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
         </a>
@@ -34,7 +34,7 @@
     <div class="heading">
     </div>
     <div class="form-tanam-penjual">
-        <form enctype="multipart/form-data" method="post">
+        <form name="formProduk" enctype="multipart/form-data" method="post">
             <input type="hidden" name="controller" value="produk">
             <input type="hidden" name="action" value="tambahPenjualProduk">
             <p>Nama Produk</p>
@@ -53,14 +53,20 @@
                 <option value="buncis">Buncis</option>
             </select>
             <p>Harga</p>
-            <input type="number" name="harga" placeholder="Harga Produk" >
+            <input type="number" name="harga" placeholder="Harga Produk" required >
             <p>Stok</p>
             <input type="number" name="stok" placeholder="Stok Tanaman" required>
             <input name="foto_produk" type="file">
-            <input type="submit" value="Input" name="input" onclick="return confirm('Apakah data akan di masukkan?')">
+            <input type="submit" value="Simpan" name="input" onclick="return confirm('Apakah data akan di masukkan?')">
         </form>
     </div>
 </section>
+<script type="text/javascript">
+    // var harga = document.forms["formProduk"]["harga"].value;
+    // if(harga == ""){
+    //     alert("Input harga kosong");
+    // }
+</script>
 </body>
 
 </html>

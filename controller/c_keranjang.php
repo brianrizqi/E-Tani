@@ -23,9 +23,19 @@ class KeranjangController
 
     public function tambahCart()
     {
-        $_SESSION['id_produk'][] = $_GET['id_produk'];
-        $_SESSION['jumlah'][] = $_GET['jumlah'];
-        header('location:?controller=keranjang&action=showCartPembeli');
+        if ($_GET['jumlah'] < 1) {
+            ?>
+            <script>
+                alert("Angka yang diinputkan harus benar")
+            </script>
+            <?php
+            $list = Produk::semuaProduk();
+            require_once('view/pages/v_pembeli_produk.php');
+        } else {
+            $_SESSION['id_produk'][] = $_GET['id_produk'];
+            $_SESSION['jumlah'][] = $_GET['jumlah'];
+            header('location:?controller=keranjang&action=showCartPembeli');
+        }
     }
 
     public function hapusCart()

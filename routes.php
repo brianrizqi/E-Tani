@@ -35,6 +35,7 @@ function call($controller, $action)
             break;
         case 'keranjang':
             $controller = new KeranjangController();
+            require_once ('model/m_produk.php');
             require_once ('model/m_keranjang.php');
             require_once ('model/m_transaksi.php');
             break;

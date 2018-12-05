@@ -24,7 +24,7 @@
         <input type="text" name="" value="">
     </div>
     <div class="penjual-field">
-        <a href="logout.php">
+        <a href="logout.php" onclick="return confirm('Apakah Anda ingin keluar')">
             <div class="penjual-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
         </a>

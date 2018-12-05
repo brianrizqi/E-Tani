@@ -21,7 +21,7 @@ php_value upload_max_filesize 10M
 php_value post_max_size 10M
 
 
-#RedirectMatch ^/$ http://localhost/E-Tani/index.php/
+#RedirectMatch ^/$ http://helloworlds.me/E-Tani/index.php/
 #RewriteRule ^index?$ index.php
 #RewriteRule ^(.*)$ -
 #RewriteRule ^(.*)$ index.php?/$1 [L]

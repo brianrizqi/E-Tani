@@ -26,7 +26,7 @@
         <a href="#" class="notification">
             <i class="fa fa-bell-o" aria-hidden="true"></i>
             <span class="circle-bell">3</span></a>
-        <a href="logout.php">
+        <a href="logout.php" onclick="return confirm('Apakah Anda ingin keluar')">
             <div class="admin-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
         </a>

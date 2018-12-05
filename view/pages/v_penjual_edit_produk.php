@@ -24,7 +24,7 @@
         <input type="text" name="" value="">
     </div>
     <div class="penjual-field">
-        <a href="logout.php">
+        <a href="logout.php" onclick="return confirm('Apakah Anda ingin keluar')">
             <div class="penjual-img"></div>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
         </a>
@@ -58,11 +58,11 @@
                     <option value="buncis">Buncis</option>
                 </select>
                 <p>Harga</p>
-                <input type="number" name="harga" placeholder="Harga Produk" value="<?= $item['harga'] ?>">
+                <input type="number" name="harga" placeholder="Harga Produk" value="<?= $item['harga'] ?>" required>
                 <p>Stok</p>
-                <input type="number" name="stok" placeholder="Stok Tanaman" value="<?= $item['stok'] ?>">
+                <input type="number" name="stok" placeholder="Stok Tanaman" value="<?= $item['stok'] ?>" required>
                 <input name="foto_produk" type="file" value="">
-                <input type="submit" name="input" value="Edit">
+                <input type="submit" name="input" value="Simpan" onclick="return confirm('Apakah data akan di ubah?')">
             </form>
             <?php
         }
