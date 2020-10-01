@@ -1,1 +1,1 @@
-# E-Tani
+# E-Tani with scraping and forecasting
